@@ -1,0 +1,45 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/poppins-bold.ttf",
+      "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
+    },
+    {
+      "path": "assets/fonts/poppins-light.ttf",
+      "sha1": "e247a92158e112f8bf7b638c8d95381d66b00dbb"
+    },
+    {
+      "path": "assets/fonts/poppins-medium.ttf",
+      "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
+    },
+    {
+      "path": "assets/fonts/poppins-regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+    },
+    {
+      "path": "assets/fonts/poppins-semibold.ttf",
+      "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
+    },
+    {
+      "path": "assets/fonts/pretendard-bold.ttf",
+      "sha1": "278de380517cb0d95affb06c3aa53cdb31665bd6"
+    },
+    {
+      "path": "assets/fonts/pretendard-light.ttf",
+      "sha1": "ce91effdac8330b8f7a95980ab3e146d65eb8caa"
+    },
+    {
+      "path": "assets/fonts/pretendard-medium.ttf",
+      "sha1": "bb3fe69b151c8d28284c541858cc19ccc8bfb3ac"
+    },
+    {
+      "path": "assets/fonts/pretendard-regular.ttf",
+      "sha1": "ea97acaadb3ed77206db497c9e9052f9f8121e10"
+    },
+    {
+      "path": "assets/fonts/pretendard-semibold.ttf",
+      "sha1": "d559220f94309f8aa19d97c536f4d51e71d5dcb7"
+    }
+  ]
+}
