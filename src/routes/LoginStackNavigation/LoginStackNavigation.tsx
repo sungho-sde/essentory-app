@@ -13,7 +13,6 @@ import LoginContainer from '@components/Login/containers/LoginContainer';
 import ForgotPasswordContainer from '@components/ForgotPassword/containers/ForgotPasswordContainer';
 import JoinStep1Container from '@components/JoinStep1/containers/JoinStep1Container';
 import JoinStep2Container from '@components/JoinStep2/containers/JoinStep2Container';
-import TestStackNavigationContainer from '@routes/TestStackNavigation/containers/TestStackNavigationContainer';
 
 type Props = {};
 
@@ -31,10 +30,10 @@ const LoginStackNavigation = (props: Props) => {
         initialRouteName="login"
         screenOptions={{
           contentStyle: {
-            backgroundColor: colors.BLACK200000,
+            backgroundColor: '#090909',
           },
           headerStyle: {
-            backgroundColor: colors.BLACK200000,
+            backgroundColor: '#090909',
           },
           headerShadowVisible: false,
           headerTitleAlign: 'center',

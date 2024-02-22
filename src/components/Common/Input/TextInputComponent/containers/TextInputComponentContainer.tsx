@@ -1,15 +1,17 @@
-import {View, Text, TextInput, StyleProp, ViewStyle} from 'react-native';
+import {TextInput, StyleProp, ViewStyle, ColorValue} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
-import TextInputComponent from '../TextInputComponent';
+import TextInputComponent, {
+  CustomTextInputComponentPresenterPropsTypes,
+} from '../TextInputComponent';
 
-type Props = {
-  // 에러 상태 여부
-  isError?: boolean;
-  // 컨테이너 스타일
-  containerStyle?: StyleProp<ViewStyle>;
-};
+type Props = {} & CustomTextInputComponentPresenterPropsTypes;
 
-const TextInputComponentContainer = ({isError, containerStyle}: Props) => {
+const TextInputComponentContainer = ({
+  isError,
+  containerStyle,
+  placeholder,
+  placeholderTextColor,
+}: Props) => {
   const inputRef = useRef<TextInput>(null);
 
   // 삭제버튼 보이기 유무
@@ -82,6 +84,8 @@ const TextInputComponentContainer = ({isError, containerStyle}: Props) => {
       // outside properties
       isError={isError}
       containerStyle={containerStyle}
+      placeholder={placeholder}
+      placeholderTextColor={placeholderTextColor}
     />
   );
 };

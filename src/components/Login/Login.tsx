@@ -6,6 +6,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import colors from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 import {hasNotch} from 'react-native-device-info';
+import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
 
 type Props = {
   onLoginPressed: () => void;
@@ -46,6 +47,7 @@ const Login = ({
           }}>
           {/* 아이디 입력 섹션 */}
           <View>
+            <TextInputComponentContainer auto />
             <TextInput
               autoCapitalize="none"
               autoComplete="off"

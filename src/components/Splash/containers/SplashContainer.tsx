@@ -10,7 +10,7 @@ const SplashContainer = (props: Props) => {
 
   const updateRootRouter = useCallback(() => {
     setTimeout(() => {
-      __updateRootRouterFromHooks('main');
+      __updateRootRouterFromHooks('login');
     }, 1000);
   }, []);
 

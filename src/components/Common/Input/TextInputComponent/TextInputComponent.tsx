@@ -6,12 +6,13 @@ import {
   Image,
   StyleProp,
   ViewStyle,
+  ColorValue,
 } from 'react-native';
 import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
 
-type Props = {
+export type CustomTextInputComponentPresenterPropsTypes = {
   inputRef: React.RefObject<TextInput>;
   isFocused: boolean;
   isDeleteBtnShow: boolean;
@@ -22,7 +23,11 @@ type Props = {
   onDeletePressed: () => void;
 
   containerStyle?: StyleProp<ViewStyle>;
+  placeholder?: string;
+  placeholderTextColor?: ColorValue;
 };
+
+type Props = CustomTextInputComponentPresenterPropsTypes;
 
 const TextInputComponent = ({
   inputRef,
@@ -34,6 +39,8 @@ const TextInputComponent = ({
   onBlur,
   onDeletePressed,
   containerStyle,
+  placeholder,
+  placeholderTextColor,
 }: Props) => {
   return (
     <View
