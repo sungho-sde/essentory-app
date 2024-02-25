@@ -5,14 +5,11 @@ import {
   LoginStackNavigationTypes,
   LoginStackParamsListTypes,
 } from '@typedef/routes/login.stack.types';
-import colors from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 import {useNavigation} from '@react-navigation/native';
 import images from '@assets/images';
 import LoginContainer from '@components/Login/containers/LoginContainer';
 import ForgotPasswordContainer from '@components/ForgotPassword/containers/ForgotPasswordContainer';
-import JoinStep1Container from '@components/JoinStep1/containers/JoinStep1Container';
-import JoinStep2Container from '@components/JoinStep2/containers/JoinStep2Container';
 
 type Props = {};
 
@@ -65,20 +62,6 @@ const LoginStackNavigation = (props: Props) => {
           component={ForgotPasswordContainer}
           options={{
             title: '비밀번호 찾기',
-          }}
-        />
-        <Stack.Screen
-          name="joinStep1"
-          component={JoinStep1Container}
-          options={{
-            title: '',
-          }}
-        />
-        <Stack.Screen
-          name="joinStep2"
-          component={JoinStep2Container}
-          options={{
-            title: '',
           }}
         />
       </Stack.Navigator>

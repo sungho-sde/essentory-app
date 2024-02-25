@@ -2,6 +2,7 @@ const images = {
   logo: {
     letter: require('./images/logo/logo-letter.png'),
     loginMain: require('./images/logo/logo-login-main.png'),
+    google: require('./images/logo/ic-google-logo.png'),
   },
   tabBar: {
     home: {

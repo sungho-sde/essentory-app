@@ -123,20 +123,62 @@ const Login = ({
           <TouchableOpacity
             onPress={onForgotPasswordPressed}
             style={{
-              marginTop: 32,
+              marginTop: 8,
+              height: 48,
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
             <Text
               style={[
-                Pretendard.Regular,
+                Pretendard.SemiBold,
                 {
-                  fontSize: 14,
+                  fontSize: 17,
                   color: 'white',
                   textAlign: 'center',
                 },
               ]}>
-              비밀번호를 잊으셨나요?
+              비밀번호를 모르겠어요
             </Text>
           </TouchableOpacity>
+          <View
+            style={{
+              marginTop: 16,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 16,
+              alignSelf: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={onGoogleSigninPressed}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 4,
+                backgroundColor: 'rgba(255,255,255,0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                defaultSource={images.logo.google}
+                source={images.logo.google}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={onAppleSigninPressed}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 4,
+                backgroundColor: 'rgba(255,255,255,0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                defaultSource={images.logo.google}
+                source={images.logo.google}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </KeyboardAwareScrollView>
       {/* 하단 position absolute 영역 */}
@@ -183,7 +225,7 @@ const Login = ({
         </View>
         {/* 회원가입 버튼 */}
         <TouchableOpacity
-          onPress={onGoogleSigninPressed}
+          onPress={onJoinPressed}
           style={{
             alignItems: 'center',
             justifyContent: 'center',

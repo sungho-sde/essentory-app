@@ -37,16 +37,14 @@ const LoginContainer = (props: Props) => {
   /**
    * @desc 로그인 버튼 눌렀을때 작동하는 네비게이션 버튼입니다
    */
-  const onJoinPressed = useCallback(() => {
-    navigation.navigate('joinStep1');
-  }, []);
+  const onJoinPressed = useCallback(() => {}, []);
 
+  // 구글 로그인 로직
   const onGoogleSigninPressed = useCallback(async () => {
     try {
-      const asd = await GoogleSignin.hasPlayServices({
+      await GoogleSignin.hasPlayServices({
         showPlayServicesUpdateDialog: true,
       });
-      console.log(asd);
       const {
         user: {email},
         idToken,
@@ -60,6 +58,7 @@ const LoginContainer = (props: Props) => {
     }
   }, []);
 
+  // 애플 로그인 로직
   const onAppleSigninPressed = useCallback(async () => {
     try {
       // Start the sign-in request
