@@ -12,6 +12,10 @@
     "clean": "watchman watch-del-all"
   },
   "dependencies": {
+    "@invertase/react-native-apple-authentication": "^2.2.2",
+    "@react-native-firebase/app": "^14.5.1",
+    "@react-native-firebase/auth": "^14.5.1",
+    "@react-native-google-signin/google-signin": "^10.0.1",
     "@react-native-masked-view/masked-view": "^0.2.8",
     "@react-navigation/bottom-tabs": "^6.5.9",
     "@react-navigation/native": "^6.1.8",

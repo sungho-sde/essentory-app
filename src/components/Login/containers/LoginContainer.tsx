@@ -3,6 +3,15 @@ import React, {useCallback} from 'react';
 import Login from '../Login';
 import {useNavigation} from '@react-navigation/native';
 import {LoginStackNavigationTypes} from '@typedef/routes/login.stack.types';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+  webClientId:
+    '406674810515-5g03c3tm8fbfckr9ctk84nhp9lnq33fn.apps.googleusercontent.com',
+});
 
 type Props = {};
 
@@ -30,11 +39,22 @@ const LoginContainer = (props: Props) => {
     navigation.navigate('joinStep1');
   }, []);
 
+  const onGoogleSigninPressed = useCallback(async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <Login
       onLoginPressed={onLoginPressed}
       onForgotPasswordPressed={onForgotPasswordPressed}
       onJoinPressed={onJoinPressed}
+      onGoogleSigninPressed={onGoogleSigninPressed}
     />
   );
 };

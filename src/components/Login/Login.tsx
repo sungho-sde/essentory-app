@@ -12,12 +12,14 @@ type Props = {
   onLoginPressed: () => void;
   onForgotPasswordPressed: () => void;
   onJoinPressed: () => void;
+  onGoogleSigninPressed: () => void;
 };
 
 const Login = ({
   onLoginPressed,
   onForgotPasswordPressed,
   onJoinPressed,
+  onGoogleSigninPressed,
 }: Props) => {
   return (
     <View
@@ -47,7 +49,6 @@ const Login = ({
           }}>
           {/* 아이디 입력 섹션 */}
           <View>
-            <TextInputComponentContainer auto />
             <TextInput
               autoCapitalize="none"
               autoComplete="off"
@@ -180,7 +181,7 @@ const Login = ({
         </View>
         {/* 회원가입 버튼 */}
         <TouchableOpacity
-          onPress={onJoinPressed}
+          onPress={onGoogleSigninPressed}
           style={{
             alignItems: 'center',
             justifyContent: 'center',

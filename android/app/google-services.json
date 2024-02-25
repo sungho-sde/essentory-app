@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "406674810515",
+    "project_id": "essentoryapp",
+    "storage_bucket": "essentoryapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406674810515:android:f85277ecf6c809143c4f66",
+        "android_client_info": {
+          "package_name": "com.estrclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406674810515-5g03c3tm8fbfckr9ctk84nhp9lnq33fn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfxP3OZ8N1akJ8W0_HQS2rsxDDtFNyCZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406674810515-5g03c3tm8fbfckr9ctk84nhp9lnq33fn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "406674810515-mdcv7nl9aq724f1ep9jboifhg60rv6lc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.v1.client.app.essentory"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
