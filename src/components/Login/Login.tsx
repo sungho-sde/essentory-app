@@ -13,6 +13,7 @@ type Props = {
   onForgotPasswordPressed: () => void;
   onJoinPressed: () => void;
   onGoogleSigninPressed: () => void;
+  onAppleSigninPressed: () => void;
 };
 
 const Login = ({
@@ -20,6 +21,7 @@ const Login = ({
   onForgotPasswordPressed,
   onJoinPressed,
   onGoogleSigninPressed,
+  onAppleSigninPressed,
 }: Props) => {
   return (
     <View
