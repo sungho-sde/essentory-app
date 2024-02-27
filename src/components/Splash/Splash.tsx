@@ -1,4 +1,4 @@
-import {View, Text, StatusBar, Image} from 'react-native';
+import {View, Text, StatusBar, Image, Platform} from 'react-native';
 import React from 'react';
 import colors from '@assets/colors';
 import {Poppins} from '@assets/fonts';
@@ -15,7 +15,9 @@ const Splash = (props: Props) => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar
+        barStyle={Platform.OS === 'android' ? 'light-content' : 'light-content'}
+      />
       <Image source={images.logo.loginMain} />
     </View>
   );

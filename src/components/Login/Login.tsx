@@ -1,4 +1,11 @@
-import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 import React from 'react';
 import images from '@assets/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -28,6 +35,7 @@ const Login = ({
       style={{
         flex: 1,
       }}>
+      <StatusBar barStyle={'light-content'} />
       <KeyboardAwareScrollView
         bounces={false}
         contentContainerStyle={{

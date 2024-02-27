@@ -7,25 +7,32 @@ import {
   StyleProp,
   ViewStyle,
   ColorValue,
+  KeyboardTypeOptions,
 } from 'react-native';
 import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
 
+// 외부에서 들어오는 property 타입
+export type CustomTextInputComponentContainerPropsTypes = {
+  containerStyle?: StyleProp<ViewStyle>;
+  placeholder?: string;
+  placeholderTextColor?: ColorValue;
+  isError?: boolean;
+  keyboardType?: KeyboardTypeOptions;
+  onTextChanged: (str: string) => void;
+};
+
+// Container에서 Present로 주는 타입
 export type CustomTextInputComponentPresenterPropsTypes = {
   inputRef: React.RefObject<TextInput>;
   isFocused: boolean;
   isDeleteBtnShow: boolean;
-  isError?: boolean;
   onTextChanged: (txt: string) => void;
   onFocus: () => void;
   onBlur: () => void;
   onDeletePressed: () => void;
-
-  containerStyle?: StyleProp<ViewStyle>;
-  placeholder?: string;
-  placeholderTextColor?: ColorValue;
-};
+} & CustomTextInputComponentContainerPropsTypes;
 
 type Props = CustomTextInputComponentPresenterPropsTypes;
 
@@ -40,7 +47,8 @@ const TextInputComponent = ({
   onDeletePressed,
   containerStyle,
   placeholder,
-  placeholderTextColor,
+  placeholderTextColor = 'rgba(255,255,255,0.3)',
+  keyboardType,
 }: Props) => {
   return (
     <View
@@ -63,12 +71,16 @@ const TextInputComponent = ({
       ]}>
       {/* TextInput */}
       <TextInput
+        autoComplete="off"
+        autoCapitalize="none"
+        autoCorrect={false}
+        keyboardType={keyboardType}
         ref={inputRef}
         onFocus={onFocus}
         onBlur={onBlur}
         onChangeText={onTextChanged}
-        placeholder="값을 입력해주세요"
-        placeholderTextColor={'rgba(255,255,255,0.3)'}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
         style={[
           Pretendard.SemiBold,
           {

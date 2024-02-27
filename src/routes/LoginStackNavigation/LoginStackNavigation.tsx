@@ -10,6 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 import images from '@assets/images';
 import LoginContainer from '@components/Login/containers/LoginContainer';
 import ForgotPasswordContainer from '@components/ForgotPassword/containers/ForgotPasswordContainer';
+import JoinEmailWriteContainer from '@components/JoinEmailWrite/containers/JoinEmailWriteContainer';
 
 type Props = {};
 
@@ -27,7 +28,7 @@ const LoginStackNavigation = (props: Props) => {
         initialRouteName="login"
         screenOptions={{
           contentStyle: {
-            backgroundColor: '#090909',
+            backgroundColor: 'rgba(0,0,0,0.2)',
           },
           headerStyle: {
             backgroundColor: '#090909',
@@ -54,6 +55,13 @@ const LoginStackNavigation = (props: Props) => {
           component={LoginContainer}
           options={{
             title: '',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="joinEmailWrite"
+          component={JoinEmailWriteContainer}
+          options={{
             headerShown: false,
           }}
         />

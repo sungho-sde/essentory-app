@@ -14,12 +14,6 @@ type Props = {};
 
 const App = (props: Props) => {
   return (
-    // <GestureHandlerRootView
-    //   style={{
-    //     flex: 1,
-    //   }}>
-    //   <StatusBar barStyle={'light-content'} />
-    // </GestureHandlerRootView>
     <Provider store={myStore}>
       <RootNavigationContainer />
     </Provider>

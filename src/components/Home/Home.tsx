@@ -39,7 +39,6 @@ const Home = ({
         backgroundColor: colors.BLACK001000,
         flex: 1,
       }}>
-      <StatusBar barStyle="light-content" />
       {/* Onboarding */}
       {false && (
         <View

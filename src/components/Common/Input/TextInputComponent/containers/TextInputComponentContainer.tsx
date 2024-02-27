@@ -1,16 +1,18 @@
-import {TextInput, StyleProp, ViewStyle, ColorValue} from 'react-native';
+import {TextInput} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
 import TextInputComponent, {
-  CustomTextInputComponentPresenterPropsTypes,
+  CustomTextInputComponentContainerPropsTypes,
 } from '../TextInputComponent';
 
-type Props = {} & CustomTextInputComponentPresenterPropsTypes;
+type Props = CustomTextInputComponentContainerPropsTypes;
 
 const TextInputComponentContainer = ({
   isError,
   containerStyle,
   placeholder,
   placeholderTextColor,
+  onTextChanged: onOutsideTextChangedFucntion,
+  keyboardType,
 }: Props) => {
   const inputRef = useRef<TextInput>(null);
 
@@ -50,11 +52,11 @@ const TextInputComponentContainer = ({
    */
   const onTextChanged = useCallback(
     (txt: string) => {
-      const value = txt;
-
+      const value = txt.trim();
+      onOutsideTextChangedFucntion(value);
       deleteBtnShowLogic(value);
     },
-    [deleteBtnShowLogic],
+    [deleteBtnShowLogic, onOutsideTextChangedFucntion],
   );
 
   /**
@@ -86,6 +88,7 @@ const TextInputComponentContainer = ({
       containerStyle={containerStyle}
       placeholder={placeholder}
       placeholderTextColor={placeholderTextColor}
+      keyboardType={keyboardType}
     />
   );
 };

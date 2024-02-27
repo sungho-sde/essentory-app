@@ -37,7 +37,9 @@ const LoginContainer = (props: Props) => {
   /**
    * @desc 로그인 버튼 눌렀을때 작동하는 네비게이션 버튼입니다
    */
-  const onJoinPressed = useCallback(() => {}, []);
+  const onJoinPressed = useCallback(() => {
+    navigation.navigate('joinEmailWrite');
+  }, []);
 
   // 구글 로그인 로직
   const onGoogleSigninPressed = useCallback(async () => {
@@ -52,7 +54,10 @@ const LoginContainer = (props: Props) => {
 
       const googleCredential = Fauth.GoogleAuthProvider.credential(idToken);
       console.log(googleCredential);
+
       const {user} = await Fauth().signInWithCredential(googleCredential);
+      const asd = user.getIdToken();
+      console.log(asd);
     } catch (error) {
       console.log(error);
     }
