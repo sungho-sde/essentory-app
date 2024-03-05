@@ -1,19 +1,19 @@
 import {View, Text} from 'react-native';
 import React, {useCallback} from 'react';
-import JoinEmailWrite from '../JoinEmailWrite';
+import JoinPassword from '../JoinPassword';
 import {useNavigation} from '@react-navigation/native';
 import {LoginStackNavigationTypes} from '@typedef/routes/login.stack.types';
 
 type Props = {};
 
-const JoinEmailWriteContainer = (props: Props) => {
+const JoinPasswordContainer = (props: Props) => {
   const navigation = useNavigation<LoginStackNavigationTypes>();
 
   const onSubmitPressed = useCallback(() => {
-    navigation.navigate('joinPassword');
+    navigation.navigate('checkEmailVerification');
   }, []);
 
-  return <JoinEmailWrite onSubmitPressed={onSubmitPressed} />;
+  return <JoinPassword onSubmitPressed={onSubmitPressed} />;
 };
 
-export default JoinEmailWriteContainer;
+export default JoinPasswordContainer;

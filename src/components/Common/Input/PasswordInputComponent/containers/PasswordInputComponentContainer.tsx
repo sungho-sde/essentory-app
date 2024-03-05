@@ -1,12 +1,12 @@
 import {TextInput} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
-import TextInputComponent, {
+import PasswordInputComponent, {
   CustomTextInputComponentContainerPropsTypes,
-} from '../TextInputComponent';
+} from '../PasswordInputComponent';
 
 type Props = CustomTextInputComponentContainerPropsTypes;
 
-const TextInputComponentContainer = ({
+const PasswordInputComponentContainer = ({
   isError,
   containerStyle,
   placeholder,
@@ -16,37 +16,18 @@ const TextInputComponentContainer = ({
 }: Props) => {
   const inputRef = useRef<TextInput>(null);
 
-  // 삭제버튼 보이기 유무
-  const [isDeleteBtnShow, setIsDeleteBtnShow] = useState(false);
+  // Password 보이기 여부
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
 
   // TextInput Focus 유무
   const [isFocused, setIsFocused] = useState(false);
 
   /**
-   * @description TextInput 삭제버튼 클릭시 동작하는 함수
+   * @description 비밀번호 보이기 및 안보이기 로직
    */
-  const onDeletePressed = useCallback(() => {
-    if (inputRef.current) {
-      inputRef.current.setNativeProps({
-        text: '',
-      });
-      setIsDeleteBtnShow(false);
-      onOutsideTextChangedFucntion('');
-      return;
-    }
-  }, [inputRef, onOutsideTextChangedFucntion]);
-
-  /**
-   * @description TextInput입력값에 따라 삭제버튼 보임여부 처리 로직 함수
-   */
-  const deleteBtnShowLogic = useCallback((text: string) => {
-    if (text.length !== 0) {
-      setIsDeleteBtnShow(true);
-      return;
-    }
-
-    setIsDeleteBtnShow(false);
-  }, []);
+  const onEyePressed = useCallback(() => {
+    setIsPasswordShow(!isPasswordShow);
+  }, [isPasswordShow]);
 
   /**
    * @description TextInput입력 이벤트 감지 함수
@@ -55,9 +36,8 @@ const TextInputComponentContainer = ({
     (txt: string) => {
       const value = txt.trim();
       onOutsideTextChangedFucntion(value);
-      deleteBtnShowLogic(value);
     },
-    [deleteBtnShowLogic, onOutsideTextChangedFucntion],
+    [onOutsideTextChangedFucntion],
   );
 
   /**
@@ -75,15 +55,15 @@ const TextInputComponentContainer = ({
   }, []);
 
   return (
-    <TextInputComponent
+    <PasswordInputComponent
       // must need properties
       inputRef={inputRef}
+      isPasswordShow={isPasswordShow}
       isFocused={isFocused}
-      isDeleteBtnShow={isDeleteBtnShow}
       onFocus={onFocus}
       onBlur={onBlur}
       onTextChanged={onTextChanged}
-      onDeletePressed={onDeletePressed}
+      onEyePressed={onEyePressed}
       // outside properties
       isError={isError}
       containerStyle={containerStyle}
@@ -94,4 +74,4 @@ const TextInputComponentContainer = ({
   );
 };
 
-export default TextInputComponentContainer;
+export default PasswordInputComponentContainer;

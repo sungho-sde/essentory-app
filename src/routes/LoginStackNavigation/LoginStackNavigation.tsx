@@ -11,6 +11,10 @@ import images from '@assets/images';
 import LoginContainer from '@components/Login/containers/LoginContainer';
 import ForgotPasswordContainer from '@components/ForgotPassword/containers/ForgotPasswordContainer';
 import JoinEmailWriteContainer from '@components/JoinEmailWrite/containers/JoinEmailWriteContainer';
+import JoinPasswordContainer from '@components/JoinPassword/containers/JoinPasswordContainer';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
+import CheckEmailVerificationContainer from '@components/CheckEmailVerification/containers/CheckEmailVerificationContainer';
+import JoinProfileWriteContainer from '@components/JoinProfileWrite/containers/JoinProfileWriteContainer';
 
 type Props = {};
 
@@ -28,27 +32,64 @@ const LoginStackNavigation = (props: Props) => {
         initialRouteName="login"
         screenOptions={{
           contentStyle: {
-            backgroundColor: 'rgba(0,0,0,0.2)',
+            backgroundColor: '#191919',
           },
-          headerStyle: {
-            backgroundColor: '#090909',
-          },
+          header: props => (
+            <View
+              style={{
+                height: getStatusBarHeight() + 48,
+                flexDirection: 'row',
+                alignItems: 'flex-end',
+                backgroundColor: '#191919',
+              }}>
+              {/* header container */}
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                {/* header Left */}
+                <View
+                  style={{
+                    paddingLeft: 12,
+                  }}>
+                  <TouchableOpacity onPress={navigation.goBack}>
+                    <Image source={images.icons.back.default} />
+                  </TouchableOpacity>
+                </View>
+                {/* header title */}
+                <View
+                  style={{
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Text
+                    style={[
+                      Pretendard.Bold,
+                      {
+                        fontSize: 16,
+                        color: 'white',
+                      },
+                    ]}>
+                    {props.options.title}
+                  </Text>
+                </View>
+                {/* header right */}
+                <View
+                  style={{
+                    paddingRight: 12,
+                  }}>
+                  <View
+                    style={{
+                      width: 48,
+                      height: 48,
+                    }}></View>
+                </View>
+              </View>
+            </View>
+          ),
           headerShadowVisible: false,
-          headerTitleAlign: 'center',
-          headerTitleStyle: [
-            Pretendard.Bold,
-            {
-              fontSize: 16,
-              color: 'white',
-            },
-          ],
-          headerLeft: () => {
-            return (
-              <TouchableOpacity onPress={navigation.goBack}>
-                <Image source={images.icons.back.white} />
-              </TouchableOpacity>
-            );
-          },
         }}>
         <Stack.Screen
           name="login"
@@ -62,14 +103,35 @@ const LoginStackNavigation = (props: Props) => {
           name="joinEmailWrite"
           component={JoinEmailWriteContainer}
           options={{
-            headerShown: false,
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name="joinPassword"
+          component={JoinPasswordContainer}
+          options={{
+            title: '',
           }}
         />
         <Stack.Screen
           name="forgotPassword"
           component={ForgotPasswordContainer}
           options={{
-            title: '비밀번호 찾기',
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name="checkEmailVerification"
+          component={CheckEmailVerificationContainer}
+          options={{
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name="joinProfileWrite"
+          component={JoinProfileWriteContainer}
+          options={{
+            title: '',
           }}
         />
       </Stack.Navigator>

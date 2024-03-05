@@ -3,6 +3,7 @@ const images = {
     letter: require('./images/logo/logo-letter.png'),
     loginMain: require('./images/logo/logo-login-main.png'),
     google: require('./images/logo/ic-google-logo.png'),
+    apple: require('./images/logo/ic-apple-logo.png'),
   },
   tabBar: {
     home: {
@@ -19,6 +20,14 @@ const images = {
     },
   },
   icons: {
+    check: {
+      circle: {
+        green: require('./images/icons/ic-green-circle-check.png'),
+      },
+    },
+    eye: {
+      open: require('./images/icons/ic-gray-eye-open.png'),
+    },
     share: {
       link: require('./images/icons/ic-share-link.png'),
       kakao: require('./images/icons/ic-share-kakao.png'),
@@ -35,6 +44,7 @@ const images = {
     },
     back: {
       white: require('./images/icons/ic-white-back.png'),
+      default: require('./images/icons/ic-default-back-btn.png'),
     },
     arrow: {
       right: {

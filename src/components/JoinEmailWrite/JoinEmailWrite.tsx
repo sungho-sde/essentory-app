@@ -4,9 +4,11 @@ import {KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
 import {Pretendard} from '@assets/fonts';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
 
-type Props = {};
+type Props = {
+  onSubmitPressed: () => void;
+};
 
-const JoinEmailWrite = (props: Props) => {
+const JoinEmailWrite = ({onSubmitPressed}: Props) => {
   return (
     <View
       style={{
@@ -22,7 +24,7 @@ const JoinEmailWrite = (props: Props) => {
           return (
             <View
               style={{
-                paddingTop: 112,
+                paddingTop: 8,
                 paddingHorizontal: 24,
               }}>
               <View>
@@ -62,6 +64,7 @@ const JoinEmailWrite = (props: Props) => {
                 </View>
               </View>
               <TouchableOpacity
+                onPress={onSubmitPressed}
                 style={{
                   alignItems: 'center',
                   justifyContent: 'center',

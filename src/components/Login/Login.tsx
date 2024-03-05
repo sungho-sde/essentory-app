@@ -182,8 +182,8 @@ const Login = ({
                 justifyContent: 'center',
               }}>
               <Image
-                defaultSource={images.logo.google}
-                source={images.logo.google}
+                defaultSource={images.logo.apple}
+                source={images.logo.apple}
               />
             </TouchableOpacity>
           </View>
