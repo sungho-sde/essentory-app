@@ -3,131 +3,115 @@ import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
 import colors from '@assets/colors';
+import {KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
+import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
 
-type Props = {};
+type Props = {
+  isReadyForSendEmail: boolean;
+  onEmailTextChanged: (txt: string) => void;
+  onSendEmailPressed: () => void;
+};
 
-const ForgotPassword = (props: Props) => {
+const ForgotPassword = ({
+  isReadyForSendEmail,
+  onEmailTextChanged,
+  onSendEmailPressed,
+}: Props) => {
   return (
     <View
       style={{
         flex: 1,
       }}>
-      <View
-        style={{
-          paddingVertical: 80,
-        }}>
-        <Image
-          style={{
-            alignSelf: 'center',
-          }}
-          source={images.icons.lock.white}
-        />
-        <Text
-          style={[
-            Pretendard.Regular,
-            {
-              fontSize: 14,
-              color: 'white',
-              textAlign: 'center',
-              marginTop: 18,
-            },
-          ]}>
-          본인확인을 위해 가입 시 등록한 전화번호로{'\n'}인증코드가 발송됩니다.
-        </Text>
-      </View>
-      <View
+      <KeyboardAwareFlatList
         style={{
           flex: 1,
-          paddingHorizontal: 20,
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-            }}>
-            <Text
-              style={[
-                Pretendard.Bold,
-                {
-                  fontSize: 14,
-                  color: 'white',
-                  textAlign: 'center',
-                },
-              ]}>
-              아이디로 찾기
-            </Text>
-            <View style={{marginTop: 6, height: 2, backgroundColor: 'white'}} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-            }}>
-            <Text
-              style={[
-                Pretendard.Bold,
-                {
-                  fontSize: 14,
-                  color: colors.GRAY300000,
-                  textAlign: 'center',
-                },
-              ]}>
-              전화번호로 찾기
-            </Text>
-            <View
-              style={{
-                marginTop: 6,
-                height: 2,
-                backgroundColor: colors.GRAY300000,
-              }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            paddingTop: 22,
-          }}>
-          <TextInput
-            placeholder="아이디를 입력해주세요."
-            placeholderTextColor={colors.GRAY300000}
-            style={[
-              Pretendard.Regular,
-              {
-                fontSize: 16,
-                color: 'white',
-                borderRadius: 12,
-                borderWidth: 1,
-                borderColor: colors.BLACK000000,
-                height: 48,
-                paddingHorizontal: 16,
-              },
-            ]}
-          />
-          <TouchableOpacity
-            style={{
-              borderRadius: 12,
-              backgroundColor: colors.MAIN,
-              height: 56,
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 22,
-            }}>
-            <Text
-              style={[
-                Pretendard.Bold,
-                {
-                  fontSize: 16,
-                  color: colors.BLACK300,
-                },
-              ]}>
-              다음
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+        }}
+        bounces={false}
+        data={['RO']}
+        contentContainerStyle={{
+          paddingTop: 8,
+          paddingHorizontal: 24,
+        }}
+        renderItem={() => {
+          return (
+            <View>
+              <Text
+                style={[
+                  Pretendard.SemiBold,
+                  {
+                    fontSize: 24,
+                    color: 'rgba(255,255,255,0.85)',
+                  },
+                ]}>
+                비밀번호 재설정하기
+              </Text>
+              <Text
+                style={[
+                  Pretendard.Regular,
+                  {
+                    fontSize: 15,
+                    color: 'white',
+                    marginTop: 8,
+                    lineHeight: 15 * 1.5,
+                  },
+                ]}>
+                비밀번호를 다시 설정하려면 회원가입 때 사용하신 이메일 주소로
+                비밀번호 재설정 링크를 보내드립니다
+              </Text>
+              <View
+                style={{
+                  marginTop: 24,
+                }}>
+                <Text
+                  style={[
+                    Pretendard.SemiBold,
+                    {
+                      fontSize: 15,
+                      color: 'white',
+                    },
+                  ]}>
+                  이메일
+                </Text>
+                <TextInputComponentContainer
+                  containerStyle={{
+                    marginTop: 8,
+                  }}
+                  keyboardType="email-address"
+                  placeholder="이메일 입력"
+                  placeholderTextColor="rgba(255,255,255,0.3)"
+                  onTextChanged={onEmailTextChanged}
+                />
+                <TouchableOpacity
+                  disabled={!isReadyForSendEmail}
+                  onPress={onSendEmailPressed}
+                  style={{
+                    height: 48,
+                    paddingHorizontal: 12,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: 'rgba(255,255,255,0.15)',
+                    borderRadius: 4,
+                    marginTop: 8,
+                    marginRight: 'auto',
+                  }}>
+                  <Text
+                    style={[
+                      Pretendard.SemiBold,
+                      {
+                        fontSize: 15,
+                        color: !isReadyForSendEmail
+                          ? 'rgba(255,255,255,0.15)'
+                          : 'rgba(255,255,255,0.95)',
+                      },
+                    ]}>
+                    재설정 이메일 보내기
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          );
+        }}
+      />
     </View>
   );
 };
