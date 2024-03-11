@@ -1,12 +1,32 @@
-import {TextInput} from 'react-native';
+import {
+  ColorValue,
+  KeyboardTypeOptions,
+  StyleProp,
+  TextInput,
+  ViewStyle,
+} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
-import TextInputComponent, {
-  CustomTextInputComponentContainerPropsTypes,
-} from '../TextInputComponent';
+import TextInputComponent from '../TextInputComponent';
 
-type Props = CustomTextInputComponentContainerPropsTypes;
+// 외부에서 들어와서 Container단계에서 끝나는 properties
+type OutsidePropsTypes = {
+  onTextChanged: (str: string) => void;
+};
+
+// 외부에서 들어오는 property 타입
+export type CustomTextInputComponentContainerPropsTypes = {
+  secureTextEntry?: boolean;
+  containerStyle?: StyleProp<ViewStyle>;
+  placeholder?: string;
+  placeholderTextColor?: ColorValue;
+  isError?: boolean;
+  keyboardType?: KeyboardTypeOptions;
+};
+
+type Props = CustomTextInputComponentContainerPropsTypes & OutsidePropsTypes;
 
 const TextInputComponentContainer = ({
+  secureTextEntry,
   isError,
   containerStyle,
   placeholder,
@@ -85,6 +105,7 @@ const TextInputComponentContainer = ({
       onTextChanged={onTextChanged}
       onDeletePressed={onDeletePressed}
       // outside properties
+      secureTextEntry={secureTextEntry}
       isError={isError}
       containerStyle={containerStyle}
       placeholder={placeholder}

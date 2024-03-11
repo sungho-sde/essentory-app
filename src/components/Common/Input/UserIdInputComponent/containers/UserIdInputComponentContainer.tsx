@@ -8,6 +8,7 @@ import {
 import React, {useCallback, useRef, useState} from 'react';
 import UserIdInputComponent from '../UserIdInputComponent';
 import {API, originUrl, requestGet} from '@lib/request';
+import {getErrorMessage} from '@lib/factory';
 
 // 외부에서 들어와서 Container단계에서 끝나는 properties
 type OutsidePropsTypes = {
@@ -63,13 +64,22 @@ const UserIdInputComponentContainer = ({
    * @description 아이디 중복여부 체크
    */
   const checkIdDuplicated = useCallback(async () => {
-    const responseFromServer = await requestGet<{
-      valid: boolean; // ID 사용가능 여부 true = 사용가능
-      message: string; // 메세지
-    }>(originUrl + API.auth.checkIdDuplicate + `?username=${id}`);
+    try {
+      const responseFromServer = await requestGet<{
+        valid: boolean; // ID 사용가능 여부 true = 사용가능
+        message: string; // 메세지
+      }>(originUrl + API.auth.checkIdDuplicate + `?username=${id}`);
 
-    setIsDuplicate(!responseFromServer.valid);
-    onUserIdDuplicated(!responseFromServer.valid);
+      setIsDuplicate(!responseFromServer.valid);
+      onUserIdDuplicated(!responseFromServer.valid);
+    } catch (error) {
+      const message = getErrorMessage(error);
+
+      console.log(message);
+
+      setIsDuplicate(true);
+      onUserIdDuplicated(true);
+    }
   }, [id, onUserIdDuplicated]);
 
   /**

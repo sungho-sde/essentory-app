@@ -3,10 +3,11 @@ import React from 'react';
 import {Pretendard} from '@assets/fonts';
 
 type Props = {
+  email: string;
   onSubmitPressed: () => void;
 };
 
-const CheckEmailVerification = ({onSubmitPressed}: Props) => {
+const CheckEmailVerification = ({email, onSubmitPressed}: Props) => {
   return (
     <View
       style={{
@@ -33,8 +34,8 @@ const CheckEmailVerification = ({onSubmitPressed}: Props) => {
             lineHeight: 15 * 1.5,
           },
         ]}>
-        songyh1996@gmail.com으로 인증 이메일을 발송했습니다. 이메일에서
-        인증링크를 클릭해주세요
+        {email}으로 인증 이메일을 발송했습니다. 이메일에서 인증링크를
+        클릭해주세요
       </Text>
       <TouchableOpacity
         onPress={onSubmitPressed}

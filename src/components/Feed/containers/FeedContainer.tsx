@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {BottomTabNavigationTypes} from '@typedef/routes/main.tab.types';
 import images from '@assets/images';
 import FastImage from 'react-native-fast-image';
+import auth from '@react-native-firebase/auth';
 
 type Props = {};
 
@@ -29,6 +30,9 @@ const FeedContainer = (props: Props) => {
           <TouchableOpacity
             disabled={!__DEV__}
             onPress={onTestPressed}
+            onLongPress={() => {
+              auth().signOut();
+            }}
             style={{
               paddingLeft: 20,
             }}>

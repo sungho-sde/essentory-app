@@ -12,35 +12,28 @@ import {
 import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
-
-// 외부에서 들어오는 property 타입
-export type CustomTextInputComponentContainerPropsTypes = {
-  containerStyle?: StyleProp<ViewStyle>;
-  placeholder?: string;
-  placeholderTextColor?: ColorValue;
-  isError?: boolean;
-  keyboardType?: KeyboardTypeOptions;
-  onTextChanged: (str: string) => void;
-};
+import {CustomPasswordInputComponentContainerPropsTypes} from './containers/PasswordInputComponentContainer';
 
 // Container에서 Present로 주는 타입
-export type CustomTextInputComponentPresenterPropsTypes = {
+export type CustomPasswordInputComponentPresenterPropsTypes = {
   inputRef: React.RefObject<TextInput>;
   isFocused: boolean;
   isPasswordShow: boolean;
+  borderType?: 'succeed' | 'error';
   onEyePressed: () => void;
   onTextChanged: (txt: string) => void;
   onFocus: () => void;
   onBlur: () => void;
-} & CustomTextInputComponentContainerPropsTypes;
+} & CustomPasswordInputComponentContainerPropsTypes;
 
-type Props = CustomTextInputComponentPresenterPropsTypes;
+type Props = CustomPasswordInputComponentPresenterPropsTypes;
 
 const PasswordInputComponent = ({
   inputRef,
   isFocused,
   isPasswordShow,
   isError = false,
+  borderType,
   onTextChanged,
   onEyePressed,
   onFocus,
@@ -68,6 +61,9 @@ const PasswordInputComponent = ({
             : 'rgba(255,255,255,0.05)',
         },
         containerStyle,
+        borderType && {
+          borderColor: borderType === 'succeed' ? '#00B23B' : '#CC0023',
+        },
       ]}>
       {/* TextInput */}
       <TextInput
@@ -94,7 +90,11 @@ const PasswordInputComponent = ({
       />
       {/* 비밀번호 보이기 버튼 */}
       <TouchableOpacity onPress={onEyePressed}>
-        <Image source={images.icons.eye.open} />
+        <Image
+          source={
+            isPasswordShow ? images.icons.eye.close : images.icons.eye.open
+          }
+        />
       </TouchableOpacity>
     </View>
   );

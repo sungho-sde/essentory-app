@@ -5,10 +5,16 @@ import {Pretendard} from '@assets/fonts';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
 
 type Props = {
+  isReadyForSubmit: boolean;
+  onEmailTextChanged: (txt: string) => void;
   onSubmitPressed: () => void;
 };
 
-const JoinEmailWrite = ({onSubmitPressed}: Props) => {
+const JoinEmailWrite = ({
+  isReadyForSubmit,
+  onEmailTextChanged,
+  onSubmitPressed,
+}: Props) => {
   return (
     <View
       style={{
@@ -57,13 +63,15 @@ const JoinEmailWrite = ({onSubmitPressed}: Props) => {
                       marginTop: 8,
                     }}>
                     <TextInputComponentContainer
+                      placeholder="이메일 입력하기"
                       keyboardType="email-address"
-                      onTextChanged={() => {}}
+                      onTextChanged={onEmailTextChanged}
                     />
                   </View>
                 </View>
               </View>
               <TouchableOpacity
+                disabled={!isReadyForSubmit}
                 onPress={onSubmitPressed}
                 style={{
                   alignItems: 'center',

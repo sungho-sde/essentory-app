@@ -1,5 +1,5 @@
-import {View, Text} from 'react-native';
-import React, {useCallback} from 'react';
+import {View, Text, Alert} from 'react-native';
+import React, {useCallback, useState} from 'react';
 import Login from '../Login';
 import {useNavigation} from '@react-navigation/native';
 import {LoginStackNavigationTypes} from '@typedef/routes/login.stack.types';
@@ -11,6 +11,10 @@ import {
 import {appleAuth} from '@invertase/react-native-apple-authentication';
 import {API, originUrl, requestPost} from '@lib/request';
 import {getErrorMessage} from '@lib/factory';
+import {AuthTypes} from '@typedef/store/auth.types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import useAuth from '@hooks/store/auth/useAuth';
+import useRootRouter from '@hooks/store/routes/useRootRouter';
 
 GoogleSignin.configure({
   webClientId:
@@ -22,71 +26,20 @@ type Props = {};
 const LoginContainer = (props: Props) => {
   const navigation = useNavigation<LoginStackNavigationTypes>();
 
-  const getUserData = useCallback(async (uid: string) => {
-    try {
-      const responseFromServer = await requestPost<
-        {uid: string; device_id: string; push_token: string},
-        {
-          uid: string;
-          username: string;
-          display_name: string;
-          email: string;
-          profile_picture_url: null | string;
-          status: 'Active' | 'Deactive';
-          created_at: Date;
-        }
-      >(originUrl + API.auth.signin, {
-        uid,
-        device_id: '',
-        push_token: '',
-      });
-      // uid: 'D7gzSEZb3kgslpxnjf95HAtYncf12',
-      console.log(responseFromServer);
+  const {__updateAuthFromHooks} = useAuth();
+  const {__updateRootRouterFromHooks} = useRootRouter();
 
-      // const isErrorResponse = Object.keys(responseFromServer);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-      // if (isErrorResponse) {
-      //   const value = responseFromServer as {
-      //     error: string;
-      //   };
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-      //   console.log(value.error);
-      //   navigation.navigate('joinProfileWrite', {
-      //     uid,
-      //   });
-      // }
-
-      // const value = responseFromServer as {
-      //   uid: string;
-      //   username: string;
-      //   display_name: string;
-      //   email: string;
-      //   profile_picture_url: null | string;
-      //   status: 'Active' | 'Deactive';
-      //   created_at: Date;
-      // };
-    } catch (error) {
-      // Default Error handling
-
-      const message = getErrorMessage(error);
-
-      if (message === 'Invalid Firebase UID') {
-        return; // do something..
-      }
-
-      if (message === 'Specific Error Message') {
-        return; // do something..
-      }
-
-      return; // do something..
-    }
+  const onEmailTextChanged = useCallback((txt: string) => {
+    setEmail(txt);
   }, []);
 
-  /**
-   * @desc 로그인 버튼 눌렀을때 작동하는 네트워크 버튼입니다
-   */
-  const onLoginPressed = useCallback(() => {
-    console.log('on login pressed');
+  const onPasswordTextChanged = useCallback((txt: string) => {
+    setPassword(txt);
   }, []);
 
   /**
@@ -106,20 +59,20 @@ const LoginContainer = (props: Props) => {
   // 구글 로그인 로직
   const onGoogleSigninPressed = useCallback(async () => {
     try {
-      // await GoogleSignin.hasPlayServices({
-      //   showPlayServicesUpdateDialog: true,
-      // });
-      // const {idToken} = await GoogleSignin.signIn();
+      await GoogleSignin.hasPlayServices({
+        showPlayServicesUpdateDialog: true,
+      });
+      const {idToken} = await GoogleSignin.signIn();
 
-      // const googleCredential = Fauth.GoogleAuthProvider.credential(idToken);
+      const googleCredential = Fauth.GoogleAuthProvider.credential(idToken);
 
-      // const {user} = await Fauth().signInWithCredential(googleCredential);
+      const {user} = await Fauth().signInWithCredential(googleCredential);
 
-      getUserData('');
+      // getUserData(user.uid);
     } catch (error) {
       console.log(error);
     }
-  }, [getUserData]);
+  }, []);
 
   // 애플 로그인 로직
   const onAppleSigninPressed = useCallback(async () => {
@@ -164,7 +117,7 @@ const LoginContainer = (props: Props) => {
       if (!user.email) {
         return;
       }
-      getUserData(user.uid);
+      // getUserData(user.uid);
       //  checkExistEmail('apple', user.email);
     } catch (error) {
       console.log(error);
@@ -191,15 +144,59 @@ const LoginContainer = (props: Props) => {
         // some other error happened
       }
     }
-  }, [getUserData]);
+  }, []);
+
+  const onEmailAndPasswordSigninPressed = useCallback(async () => {
+    if (email === '' || password === '') {
+      setShowErrorMessage(true);
+      return;
+    }
+
+    try {
+      const credential = await Fauth().signInWithEmailAndPassword(
+        email,
+        password,
+      );
+      setShowErrorMessage(false);
+      const user = credential.user;
+
+      // getUserData(user.uid);
+    } catch (error) {
+      setShowErrorMessage(true);
+      console.log(error);
+      const {code, message} = error as {
+        code: string;
+        message: string;
+      };
+
+      if (code === 'auth/wrong-password') {
+        Alert.alert(message);
+        return;
+      }
+
+      if (code === 'auth/invalid-email') {
+        Alert.alert(message);
+
+        return;
+      }
+
+      if (code === 'auth/too-many-requests') {
+        Alert.alert('잠시후 다시 시도해주세요');
+        return;
+      }
+    }
+  }, [email, password]);
 
   return (
     <Login
-      onLoginPressed={onLoginPressed}
+      showErrorMessage={showErrorMessage}
+      onEmailTextChanged={onEmailTextChanged}
+      onPasswordTextChanged={onPasswordTextChanged}
       onForgotPasswordPressed={onForgotPasswordPressed}
       onJoinPressed={onJoinPressed}
       onGoogleSigninPressed={onGoogleSigninPressed}
       onAppleSigninPressed={onAppleSigninPressed}
+      onEmailAndPasswordSigninPressed={onEmailAndPasswordSigninPressed}
     />
   );
 };

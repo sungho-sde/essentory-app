@@ -14,21 +14,28 @@ import colors from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 import {hasNotch} from 'react-native-device-info';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 type Props = {
-  onLoginPressed: () => void;
+  showErrorMessage: boolean;
+  onEmailTextChanged: (txt: string) => void;
+  onPasswordTextChanged: (txt: string) => void;
   onForgotPasswordPressed: () => void;
   onJoinPressed: () => void;
   onGoogleSigninPressed: () => void;
   onAppleSigninPressed: () => void;
+  onEmailAndPasswordSigninPressed: () => void;
 };
 
 const Login = ({
-  onLoginPressed,
+  showErrorMessage,
+  onEmailTextChanged,
+  onPasswordTextChanged,
   onForgotPasswordPressed,
   onJoinPressed,
   onGoogleSigninPressed,
   onAppleSigninPressed,
+  onEmailAndPasswordSigninPressed,
 }: Props) => {
   return (
     <View
@@ -39,7 +46,7 @@ const Login = ({
       <KeyboardAwareScrollView
         bounces={false}
         contentContainerStyle={{
-          paddingTop: 132,
+          paddingTop: getStatusBarHeight() + 80,
           paddingHorizontal: 20,
         }}
         style={{
@@ -59,24 +66,9 @@ const Login = ({
           }}>
           {/* 아이디 입력 섹션 */}
           <View>
-            <TextInput
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect={false}
-              style={[
-                Pretendard.Regular,
-                {
-                  borderRadius: 12,
-                  height: 48,
-                  padding: 16,
-                  color: 'white',
-                  borderWidth: 1,
-                  borderColor: colors.BLACK000000,
-                  fontSize: 16,
-                },
-              ]}
-              placeholder="아이디"
-              placeholderTextColor={colors.GRAY300000}
+            <TextInputComponentContainer
+              placeholder="이메일"
+              onTextChanged={onEmailTextChanged}
             />
           </View>
           {/* 비밀번호 입력 섹션 */}
@@ -84,44 +76,42 @@ const Login = ({
             style={{
               marginTop: 16,
             }}>
-            <TextInput
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect={false}
+            <TextInputComponentContainer
+              placeholder="비밀번호"
               secureTextEntry
+              onTextChanged={onPasswordTextChanged}
+            />
+          </View>
+          {showErrorMessage && (
+            <Text
               style={[
                 Pretendard.Regular,
                 {
-                  borderRadius: 12,
-                  height: 48,
-                  padding: 16,
-                  color: 'white',
-                  borderWidth: 1,
-                  borderColor: colors.BLACK000000,
-                  fontSize: 16,
+                  fontSize: 12,
+                  color: '#FF264B',
+                  marginTop: 16,
                 },
-              ]}
-              placeholder="비밀번호"
-              placeholderTextColor={colors.GRAY300000}
-            />
-          </View>
+              ]}>
+              이메일 혹은 비밀번호가 일치하지 않습니다
+            </Text>
+          )}
           {/* 로그인 버튼 */}
           <TouchableOpacity
-            onPress={onLoginPressed}
+            onPress={onEmailAndPasswordSigninPressed}
             style={{
-              height: 48,
-              backgroundColor: colors.MAIN,
-              marginTop: 16,
+              height: 50,
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              marginTop: 24,
               alignItems: 'center',
               justifyContent: 'center',
-              borderRadius: 12,
+              borderRadius: 4,
             }}>
             <Text
               style={[
                 Pretendard.Bold,
                 {
                   fontSize: 16,
-                  color: colors.BLACK300,
+                  color: 'rgba(255,255,255,0.15)',
                 },
               ]}>
               로그인
@@ -196,40 +186,21 @@ const Login = ({
           bottom: 0,
           left: 0,
           right: 0,
-          paddingBottom: hasNotch() ? 82 : 64,
+          paddingBottom: hasNotch() ? 68 : 50,
           paddingHorizontal: 20,
         }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: 10,
-          }}>
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: colors.BLACK000000,
-              height: 1,
-            }}
-          />
+        <View style={{}}>
           <Text
             style={[
-              Pretendard.Regular,
+              Pretendard.SemiBold,
               {
-                fontSize: 12,
-                color: colors.GRAY300000,
+                fontSize: 15,
+                color: 'white',
                 textAlign: 'center',
               },
             ]}>
             아직 회원이 아니신가요?
           </Text>
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: colors.BLACK000000,
-              height: 1,
-            }}
-          />
         </View>
         {/* 회원가입 버튼 */}
         <TouchableOpacity
@@ -237,17 +208,17 @@ const Login = ({
           style={{
             alignItems: 'center',
             justifyContent: 'center',
-            height: 48,
-            borderRadius: 12,
-            backgroundColor: colors.BLACK000000,
-            marginTop: 32,
+            height: 50,
+            borderRadius: 4,
+            backgroundColor: 'rgba(255,255,255,0.15)',
+            marginTop: 16,
           }}>
           <Text
             style={[
-              Pretendard.Regular,
+              Pretendard.SemiBold,
               {
-                fontSize: 16,
-                color: 'white',
+                fontSize: 17,
+                color: 'rgba(255,255,255,0.95)',
               },
             ]}>
             회원가입

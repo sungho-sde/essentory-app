@@ -23,10 +23,12 @@ const images = {
     check: {
       circle: {
         green: require('./images/icons/ic-green-circle-check.png'),
+        red: require('./images/icons/ic-red-circle-check.png'),
       },
     },
     eye: {
-      open: require('./images/icons/ic-gray-eye-open.png'),
+      close: require('./images/icons/ic-gray-eye-open.png'),
+      open: require('./images/icons/ic-white-eye-open.png'),
     },
     share: {
       link: require('./images/icons/ic-share-link.png'),

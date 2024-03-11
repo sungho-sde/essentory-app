@@ -5,10 +5,32 @@ import {Pretendard} from '@assets/fonts';
 import PasswordInputComponentContainer from '@components/Common/Input/PasswordInputComponent/containers/PasswordInputComponentContainer';
 
 type Props = {
+  isShowPassword: boolean;
+  borderType?: 'succeed' | 'error';
+  password: string;
+  passwordConfirm: string;
+  isPasswordVerified: boolean;
+  isPasswordConfirmVerified: boolean;
+  isReadyForSubmit: boolean;
+  onPasswordTextChanged: (txt: string) => void;
+  onPasswordConfirmTextChanged: (txt: string) => void;
+  onPasswordShowPressed: (isOpen: boolean) => void;
   onSubmitPressed: () => void;
 };
 
-const JoinPassword = ({onSubmitPressed}: Props) => {
+const JoinPassword = ({
+  isShowPassword,
+  borderType,
+  password,
+  passwordConfirm,
+  isPasswordVerified,
+  isPasswordConfirmVerified,
+  isReadyForSubmit,
+  onPasswordTextChanged,
+  onPasswordConfirmTextChanged,
+  onPasswordShowPressed,
+  onSubmitPressed,
+}: Props) => {
   return (
     <View
       style={{
@@ -69,30 +91,62 @@ const JoinPassword = ({onSubmitPressed}: Props) => {
                     gap: 8,
                     marginTop: 8,
                   }}>
-                  <PasswordInputComponentContainer onTextChanged={() => {}} />
-                  <PasswordInputComponentContainer onTextChanged={() => {}} />
-                  <Text
-                    style={[
-                      Pretendard.Regular,
-                      {
-                        fontSize: 12,
-                        color: '#FF264B',
-                      },
-                    ]}>
-                    영문/숫자 조합 8자 이상으로 만들어주세요
-                  </Text>
-                  <Text
-                    style={[
-                      Pretendard.Regular,
-                      {
-                        fontSize: 12,
-                        color: '#FF264B',
-                      },
-                    ]}>
-                    비밀번호가 일치하는지 확인해주세요
-                  </Text>
+                  <PasswordInputComponentContainer
+                    borderType={borderType}
+                    isOpenPassword={isShowPassword}
+                    onPasswordOpenPressed={onPasswordShowPressed}
+                    onTextChanged={onPasswordTextChanged}
+                  />
+                  <PasswordInputComponentContainer
+                    borderType={borderType}
+                    isOpenPassword={isShowPassword}
+                    onPasswordOpenPressed={onPasswordShowPressed}
+                    onTextChanged={onPasswordConfirmTextChanged}
+                  />
+                  {(!isPasswordVerified || !isPasswordConfirmVerified) && (
+                    <Text
+                      style={[
+                        Pretendard.Regular,
+                        {
+                          fontSize: 12,
+                          color:
+                            password === '' && passwordConfirm === ''
+                              ? 'rgba(255,255,255,0.5)'
+                              : '#FF264B',
+                        },
+                      ]}>
+                      영문/숫자 조합 8자 이상으로 만들어주세요
+                    </Text>
+                  )}
+                  {password !== passwordConfirm && (
+                    <Text
+                      style={[
+                        Pretendard.Regular,
+                        {
+                          fontSize: 12,
+                          color: '#FF264B',
+                        },
+                      ]}>
+                      비밀번호가 일치하는지 확인해주세요
+                    </Text>
+                  )}
+                  {password !== '' &&
+                    passwordConfirm !== '' &&
+                    password === passwordConfirm && (
+                      <Text
+                        style={[
+                          Pretendard.Regular,
+                          {
+                            fontSize: 12,
+                            color: 'rgba(255,255,255,0.5)',
+                          },
+                        ]}>
+                        사용가능한 비밀번호입니다
+                      </Text>
+                    )}
                 </View>
                 <TouchableOpacity
+                  disabled={!isReadyForSubmit}
                   onPress={onSubmitPressed}
                   style={{
                     alignItems: 'center',
@@ -107,7 +161,7 @@ const JoinPassword = ({onSubmitPressed}: Props) => {
                       Pretendard.SemiBold,
                       {
                         fontSize: 17,
-                        color: true
+                        color: isReadyForSubmit
                           ? 'rgba(255,255,255,0.85)'
                           : 'rgba(255,255,255,0.15)',
                       },

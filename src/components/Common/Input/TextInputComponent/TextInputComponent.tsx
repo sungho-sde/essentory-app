@@ -1,27 +1,8 @@
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  StyleProp,
-  ViewStyle,
-  ColorValue,
-  KeyboardTypeOptions,
-} from 'react-native';
+import {View, TextInput, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
-
-// 외부에서 들어오는 property 타입
-export type CustomTextInputComponentContainerPropsTypes = {
-  containerStyle?: StyleProp<ViewStyle>;
-  placeholder?: string;
-  placeholderTextColor?: ColorValue;
-  isError?: boolean;
-  keyboardType?: KeyboardTypeOptions;
-  onTextChanged: (str: string) => void;
-};
+import {CustomTextInputComponentContainerPropsTypes} from './containers/TextInputComponentContainer';
 
 // Container에서 Present로 주는 타입
 export type CustomTextInputComponentPresenterPropsTypes = {
@@ -49,6 +30,7 @@ const TextInputComponent = ({
   placeholder,
   placeholderTextColor = 'rgba(255,255,255,0.3)',
   keyboardType,
+  secureTextEntry,
 }: Props) => {
   return (
     <View
@@ -71,6 +53,7 @@ const TextInputComponent = ({
       ]}>
       {/* TextInput */}
       <TextInput
+        secureTextEntry={secureTextEntry}
         autoComplete="off"
         autoCapitalize="none"
         autoCorrect={false}

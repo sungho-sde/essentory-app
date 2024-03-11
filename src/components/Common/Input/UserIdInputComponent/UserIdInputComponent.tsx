@@ -94,7 +94,7 @@ const UserIdInputComponent = ({
       {isDuplicate !== undefined && (
         <Animated.View animation={iconAnimation} duration={400}>
           {isDuplicate ? (
-            <Image source={images.icons.cancel.gray} />
+            <Image source={images.icons.check.circle.red} />
           ) : (
             <Image source={images.icons.check.circle.green} />
           )}

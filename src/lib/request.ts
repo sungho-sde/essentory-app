@@ -16,7 +16,7 @@ export const originUrl = __DEV__
   ? 'https://essentory-api-test.up.railway.app'
   : 'https://essentory-api-test.up.railway.app';
 
-export function requestGet<T>(url: string) {
+export function requestGet<T>(url: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     fetch(url)
       .then(res => res.json())
@@ -33,7 +33,11 @@ export function requestGet<T>(url: string) {
   });
 }
 
-export function requestPost<T, Q>(url: string, body: T, headers?: object) {
+export function requestPost<T, Q>(
+  url: string,
+  body: T,
+  headers?: object,
+): Promise<Q> {
   return new Promise<Q>((resolve, reject) => {
     fetch(url, {
       method: 'POST',

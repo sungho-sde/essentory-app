@@ -1,9 +1,13 @@
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import JoinProfileWrite from '../JoinProfileWrite';
 import {JoinProfileWriteParamTypes} from '@typedef/routes/login.stack.types';
 import {API, originUrl, requestPost} from '@lib/request';
 import {ReqSignUpTypes} from '@typedef/lib/request.types';
+import {getErrorMessage} from '@lib/factory';
+import {AuthTypes} from '@typedef/store/auth.types';
+import useAuth from '@hooks/store/auth/useAuth';
+import useRootRouter from '@hooks/store/routes/useRootRouter';
 
 type Props = {};
 
@@ -12,6 +16,9 @@ const JoinProfileWriteContainer = ({
     params: {uid},
   },
 }: JoinProfileWriteParamTypes) => {
+  const {__updateRootRouterFromHooks} = useRootRouter();
+  const {__updateAuthFromHooks} = useAuth();
+
   const [userId, setUserId] = useState('');
   const [userName, setUserName] = useState('');
   const [isUserIdDuplicated, setIsUserIdDuplicated] = useState(false);
@@ -31,24 +38,25 @@ const JoinProfileWriteContainer = ({
   }, []);
 
   const onSubmitPressed = useCallback(async () => {
-    console.log(uid, userId, userName);
-    const responseFromServer = await requestPost<
-      ReqSignUpTypes,
-      {
-        uid: string;
-        username: string;
-        display_name: string;
-        email: string;
-        profile_picture_url: string | null;
-        status: 'Active' | 'Deactive';
-        created_at: Date;
-      }
-    >(originUrl + API.auth.signup, {
-      uid,
-      username: userId,
-      display_name: userName,
-    });
-    console.log(responseFromServer);
+    try {
+      const responseFromServer = await requestPost<ReqSignUpTypes, AuthTypes>(
+        originUrl + API.auth.signup,
+        {
+          uid,
+          username: userId,
+          display_name: userName,
+        },
+      );
+
+      __updateAuthFromHooks(responseFromServer);
+
+      __updateRootRouterFromHooks('main');
+    } catch (error) {
+      const message = getErrorMessage(error);
+
+      console.log(message);
+      Alert.alert(message);
+    }
   }, [uid, userId, userName]);
 
   const checkSignUpVerified = useCallback(() => {
