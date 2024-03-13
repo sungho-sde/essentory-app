@@ -6,6 +6,7 @@ import SplashContainer from '@components/Splash/containers/SplashContainer';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginStackNavigationContainer from '@routes/LoginStackNavigation/containers/LoginStackNavigationContainer';
 import colors from '@assets/colors';
+import LoadingContainer from '@components/Common/Loading/containers/LoadingContainer';
 
 type Props = {
   rootRouter: RootRouterTypes;
@@ -29,6 +30,7 @@ const RootNavigation = ({rootRouter}: Props) => {
         {rootRouter === 'login' && <LoginStackNavigationContainer />}
         {rootRouter === 'main' && <CommonStackNavigationContainer />}
       </NavigationContainer>
+      <LoadingContainer />
     </View>
   );
 };

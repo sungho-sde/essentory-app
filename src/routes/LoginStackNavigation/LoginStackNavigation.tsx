@@ -15,6 +15,7 @@ import JoinPasswordContainer from '@components/JoinPassword/containers/JoinPassw
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import CheckEmailVerificationContainer from '@components/CheckEmailVerification/containers/CheckEmailVerificationContainer';
 import JoinProfileWriteContainer from '@components/JoinProfileWrite/containers/JoinProfileWriteContainer';
+import PasswordResetEmailCompleteContainer from '@components/PasswordResetEmailComplete/containers/PasswordResetEmailCompleteContainer';
 
 type Props = {};
 
@@ -116,6 +117,13 @@ const LoginStackNavigation = (props: Props) => {
         <Stack.Screen
           name="forgotPassword"
           component={ForgotPasswordContainer}
+          options={{
+            title: '',
+          }}
+        />
+        <Stack.Screen
+          name="passwordResetEmailComplete"
+          component={PasswordResetEmailCompleteContainer}
           options={{
             title: '',
           }}

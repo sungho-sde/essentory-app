@@ -6,6 +6,9 @@ import {
 export type LoginStackParamsListTypes = {
   login: undefined; // 로그인
   forgotPassword: undefined; // 비밀번호 찾기
+  passwordResetEmailComplete: {
+    email: string; // 비밀번호 재설정 이메일 보낸 이메일
+  };
   joinEmailWrite: undefined; // 이메일 작성하기 (이메일 가입시에만 사용함)
   joinPassword: {
     email: string;
@@ -21,6 +24,11 @@ export type LoginStackParamsListTypes = {
 
 export type LoginStackNavigationTypes =
   NativeStackNavigationProp<LoginStackParamsListTypes>;
+
+export type PasswordResetEmailCompleteParamTypes = NativeStackScreenProps<
+  LoginStackParamsListTypes,
+  'passwordResetEmailComplete'
+>;
 
 export type JoinProfileWriteParamTypes = NativeStackScreenProps<
   LoginStackParamsListTypes,

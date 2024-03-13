@@ -7,6 +7,7 @@ import {API, originUrl, requestPost} from '@lib/request';
 import {AuthTypes} from '@typedef/store/auth.types';
 import useAuth from '@hooks/store/auth/useAuth';
 import {getErrorMessage} from '@lib/factory';
+import useLoading from '@hooks/store/layouts/useLoading';
 
 const Fauth = auth();
 
@@ -15,12 +16,7 @@ type Props = {};
 const SplashContainer = (props: Props) => {
   const {__updateAuthFromHooks} = useAuth();
   const {__updateRootRouterFromHooks} = useRootRouter();
-
-  const updateRootRouter = useCallback(() => {
-    setTimeout(() => {
-      __updateRootRouterFromHooks('login');
-    }, 1000);
-  }, []);
+  const {__updateLoadingFromHooks} = useLoading();
 
   const getUserData = useCallback(async (uid: string) => {
     try {
@@ -34,7 +30,7 @@ const SplashContainer = (props: Props) => {
         device_id: '',
         push_token: '',
       });
-
+      __updateLoadingFromHooks(false);
       const {user} = responseFromServer;
 
       __updateAuthFromHooks(user);
@@ -42,6 +38,7 @@ const SplashContainer = (props: Props) => {
       __updateRootRouterFromHooks('main');
     } catch (error) {
       // Default Error handling
+      __updateLoadingFromHooks(false);
       Fauth.signOut();
       __updateRootRouterFromHooks('login');
 

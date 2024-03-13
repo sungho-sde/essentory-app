@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StatusBar,
+  Platform,
 } from 'react-native';
 import React from 'react';
 import images from '@assets/images';
@@ -111,7 +112,7 @@ const Login = ({
                 Pretendard.Bold,
                 {
                   fontSize: 16,
-                  color: 'rgba(255,255,255,0.15)',
+                  color: 'rgba(255,255,255,0.8)',
                 },
               ]}>
               로그인
@@ -161,21 +162,23 @@ const Login = ({
                 source={images.logo.google}
               />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={onAppleSigninPressed}
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 4,
-                backgroundColor: 'rgba(255,255,255,0.4)',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Image
-                defaultSource={images.logo.apple}
-                source={images.logo.apple}
-              />
-            </TouchableOpacity>
+            {Platform.OS === 'ios' && (
+              <TouchableOpacity
+                onPress={onAppleSigninPressed}
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 4,
+                  backgroundColor: 'rgba(255,255,255,0.4)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Image
+                  defaultSource={images.logo.apple}
+                  source={images.logo.apple}
+                />
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </KeyboardAwareScrollView>
