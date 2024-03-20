@@ -9,6 +9,7 @@ import colors from '@assets/colors';
 import ExploreContainer from '@components/Explore/containers/ExploreContainer';
 import MyPageContainer from '@components/MyPage/containers/MyPageContainer';
 import FeedContainer from '@components/Feed/containers/FeedContainer';
+import AlertContainer from '@components/Alert/containers/AlertContainer';
 
 type Props = {};
 
@@ -44,25 +45,25 @@ const Main = (props: Props) => {
           name="contents"
           component={HomeContainer}
           options={{
-            title: '홈',
-          }}
-        />
-        <Tab.Screen
-          name="funding"
-          component={ExploreContainer}
-          options={{
-            title: '탐색',
+            title: '콘텐츠',
           }}
         />
         <Tab.Screen
           name="community"
-          component={HomeContainer}
+          component={ExploreContainer}
           options={{
-            title: '홈',
+            title: '커뮤니티',
           }}
         />
         <Tab.Screen
-          name="search"
+          name="alert"
+          component={AlertContainer}
+          options={{
+            title: '알림',
+          }}
+        />
+        <Tab.Screen
+          name="profile"
           component={MyPageContainer}
           options={{
             title: '마이페이지',

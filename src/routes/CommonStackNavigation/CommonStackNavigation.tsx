@@ -35,7 +35,7 @@ const CommonStackNavigation = (props: Props) => {
         initialRouteName="main"
         screenOptions={{
           contentStyle: {
-            backgroundColor: colors.BLACK200000,
+            backgroundColor: 'rgba(0,0,0,0)',
           },
           headerStyle: {
             backgroundColor: colors.BLACK200000,

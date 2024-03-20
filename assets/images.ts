@@ -10,9 +10,17 @@ const images = {
       active: require('./images/icons/ic-active-home.png'),
       deactive: require('./images/icons/ic-deactive-home.png'),
     },
-    explore: {
-      active: require('./images/icons/ic-active-explore.png'),
-      deactive: require('./images/icons/ic-deactive-explore.png'),
+    content: {
+      active: require('./images/icons/ic-active-content.png'),
+      deactive: require('./images/icons/ic-deactive-content.png'),
+    },
+    community: {
+      active: require('./images/icons/ic-active-community.png'),
+      deactive: require('./images/icons/ic-deactive-community.png'),
+    },
+    alert: {
+      active: require('./images/icons/ic-active-alert.png'),
+      deactive: require('./images/icons/ic-deactive-alert.png'),
     },
     profile: {
       active: require('./images/icons/ic-active-profile.png'),
@@ -20,6 +28,12 @@ const images = {
     },
   },
   icons: {
+    badge: {
+      white: require('./images/icons/ic-creator-badge.png'),
+    },
+    search: {
+      gray: require('./images/icons/ic-gray-search.png'),
+    },
     check: {
       circle: {
         green: require('./images/icons/ic-green-circle-check.png'),

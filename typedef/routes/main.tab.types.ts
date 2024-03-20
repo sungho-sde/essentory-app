@@ -6,9 +6,9 @@ import {
 export type BottomTabParamsListTypes = {
   feed: undefined;
   contents: undefined;
-  funding: undefined;
   community: undefined;
-  search: undefined;
+  alert: undefined;
+  profile: undefined;
 };
 
 export type BottomTabNavigationTypes =
