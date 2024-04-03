@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 
 type Props = {
@@ -19,7 +19,7 @@ const TestShareButton = ({onSharePressed}: Props) => {
         onPress={onSharePressed}
         style={{
           height: 56,
-          backgroundColor: colors.MAIN,
+          backgroundColor: prevColors.MAIN,
           borderRadius: 8,
           alignItems: 'center',
           justifyContent: 'center',
@@ -29,7 +29,7 @@ const TestShareButton = ({onSharePressed}: Props) => {
             Pretendard.Bold,
             {
               fontSize: 16,
-              color: colors.BLACK200000,
+              color: prevColors.BLACK200000,
             },
           ]}>
           공유하기

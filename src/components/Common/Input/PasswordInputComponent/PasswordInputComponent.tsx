@@ -13,6 +13,7 @@ import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
 import {CustomPasswordInputComponentContainerPropsTypes} from './containers/PasswordInputComponentContainer';
+import {colors} from '@assets/colors';
 
 // Container에서 Present로 주는 타입
 export type CustomPasswordInputComponentPresenterPropsTypes = {
@@ -58,7 +59,7 @@ const PasswordInputComponent = ({
             ? '#CC0023'
             : isFocused
             ? 'rgba(255,255,255,0.3)'
-            : 'rgba(255,255,255,0.05)',
+            : colors.fill60,
         },
         containerStyle,
         borderType && {
@@ -84,7 +85,7 @@ const PasswordInputComponent = ({
             height: 48,
             fontSize: 17,
             flex: 1,
-            color: 'rgba(255,255,255,0.85)',
+            color: colors.fill10,
           },
         ]}
       />

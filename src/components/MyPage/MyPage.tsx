@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
 import React from 'react';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {Pretendard} from '@assets/fonts';
 import images from '@assets/images';
@@ -28,7 +28,7 @@ const MyPage = ({
     <View
       style={{
         flex: 1,
-        backgroundColor: colors.BLACK200000,
+        backgroundColor: prevColors.BLACK200000,
         paddingTop: getStatusBarHeight(),
       }}></View>
   );

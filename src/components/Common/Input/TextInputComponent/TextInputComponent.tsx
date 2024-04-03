@@ -3,6 +3,7 @@ import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
 import {CustomTextInputComponentContainerPropsTypes} from './containers/TextInputComponentContainer';
+import {colors} from '@assets/colors';
 
 // Container에서 Present로 주는 타입
 export type CustomTextInputComponentPresenterPropsTypes = {
@@ -47,7 +48,7 @@ const TextInputComponent = ({
             ? '#CC0023'
             : isFocused
             ? 'rgba(255,255,255,0.3)'
-            : 'rgba(255,255,255,0.05)',
+            : colors.fill60,
         },
         containerStyle,
       ]}>
@@ -70,7 +71,7 @@ const TextInputComponent = ({
             height: 48,
             fontSize: 17,
             flex: 1,
-            color: 'rgba(255,255,255,0.85)',
+            color: colors.fill10,
           },
         ]}
       />

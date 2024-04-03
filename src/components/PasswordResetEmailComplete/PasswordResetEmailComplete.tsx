@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Pretendard} from '@assets/fonts';
+import {colors} from '@assets/colors';
 
 type Props = {
   email: string;
@@ -20,7 +21,7 @@ const PasswordResetEmailComplete = ({email, openEmailPressed}: Props) => {
           Pretendard.SemiBold,
           {
             fontSize: 24,
-            color: 'rgba(255,255,255,0.85)',
+            color: colors.fill10,
           },
         ]}>
         비밀번호 재설정하기
@@ -54,7 +55,7 @@ const PasswordResetEmailComplete = ({email, openEmailPressed}: Props) => {
             Pretendard.SemiBold,
             {
               fontSize: 17,
-              color: true ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.15)',
+              color: true ? colors.fill10 : colors.fill40,
             },
           ]}>
           이메일 확인하기

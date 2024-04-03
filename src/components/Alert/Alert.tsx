@@ -1,8 +1,9 @@
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+
 import FastImage from 'react-native-fast-image';
+import {prevColors} from '@assets/colors';
 
 type Props = {};
 
@@ -29,7 +30,7 @@ const Alert = (props: Props) => {
                   Pretendard.Regular,
                   {
                     fontSize: 14,
-                    color: colors.GRAY100000,
+                    color: prevColors.GRAY100000,
                   },
                 ]}>
                 알림 항목이 없습니다.
@@ -77,7 +78,7 @@ const Alert = (props: Props) => {
                     Pretendard.Regular,
                     {
                       fontSize: 12,
-                      color: colors.GRAY100000,
+                      color: prevColors.GRAY100000,
                       marginTop: 12,
                     },
                   ]}>
@@ -92,7 +93,7 @@ const Alert = (props: Props) => {
                     Pretendard.Regular,
                     {
                       fontSize: 12,
-                      color: colors.GRAY100000,
+                      color: prevColors.GRAY100000,
                       marginTop: 12,
                     },
                   ]}>
@@ -101,7 +102,7 @@ const Alert = (props: Props) => {
                 <View
                   style={{
                     height: 1,
-                    backgroundColor: colors.BLACK000000,
+                    backgroundColor: prevColors.BLACK000000,
                     marginTop: 16,
                   }}
                 />

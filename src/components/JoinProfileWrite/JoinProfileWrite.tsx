@@ -4,6 +4,7 @@ import {KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
 import {Pretendard} from '@assets/fonts';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
 import UserIdInputComponentContainer from '@components/Common/Input/UserIdInputComponent/containers/UserIdInputComponentContainer';
+import {colors} from '@assets/colors';
 
 type Props = {
   isReadyForSignUp: boolean;
@@ -43,7 +44,7 @@ const JoinProfileWrite = ({
                   Pretendard.SemiBold,
                   {
                     fontSize: 24,
-                    color: 'rgba(255,255,255,0.85)',
+                    color: colors.fill10,
                   },
                 ]}>
                 프로필을 만들어주세요
@@ -53,7 +54,7 @@ const JoinProfileWrite = ({
                   Pretendard.Regular,
                   {
                     fontSize: 15,
-                    color: 'rgba(255,255,255,0.85)',
+                    color: colors.fill10,
                     marginTop: 8,
                   },
                 ]}>
@@ -89,7 +90,7 @@ const JoinProfileWrite = ({
                       Pretendard.Regular,
                       {
                         fontSize: 12,
-                        color: 'rgba(255,255,255,0.85)',
+                        color: colors.fill10,
                       },
                     ]}>
                     프로필에 사용하실 고유 아이디입니다
@@ -118,7 +119,7 @@ const JoinProfileWrite = ({
                       Pretendard.Regular,
                       {
                         fontSize: 12,
-                        color: 'rgba(255,255,255,0.85)',
+                        color: colors.fill10,
                       },
                     ]}>
                     본인을 잘 표현해 줄 닉네임을 만들어주세요
@@ -141,9 +142,7 @@ const JoinProfileWrite = ({
                     Pretendard.SemiBold,
                     {
                       fontSize: 17,
-                      color: isReadyForSignUp
-                        ? 'rgba(255,255,255,0.85)'
-                        : 'rgba(255,255,255,0.15)',
+                      color: isReadyForSignUp ? colors.fill10 : colors.fill40,
                     },
                   ]}>
                   다음

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import ProfileModify from '../ProfileModify';
 import {useNavigation} from '@react-navigation/native';
 import {CommonStackNavigationTypes} from '@typedef/routes/common.stack.types';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 
 type Props = {};
@@ -21,7 +21,7 @@ const ProfileModifyContainer = (props: Props) => {
                 style={[
                   Pretendard.Regular,
                   {
-                    color: colors.MAIN,
+                    color: prevColors.MAIN,
                     fontSize: 16,
                   },
                 ]}>

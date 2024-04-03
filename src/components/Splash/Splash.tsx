@@ -1,6 +1,6 @@
 import {View, Text, StatusBar, Image, Platform} from 'react-native';
 import React from 'react';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {Poppins} from '@assets/fonts';
 import images from '@assets/images';
 
@@ -11,7 +11,7 @@ const Splash = (props: Props) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: colors.BLACK300,
+        backgroundColor: prevColors.BLACK300,
         alignItems: 'center',
         justifyContent: 'center',
       }}>

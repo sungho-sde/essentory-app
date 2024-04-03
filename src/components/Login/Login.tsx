@@ -11,7 +11,7 @@ import React from 'react';
 import images from '@assets/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import colors from '@assets/colors';
+import {colors, prevColors} from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 import {hasNotch} from 'react-native-device-info';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
@@ -213,7 +213,7 @@ const Login = ({
             justifyContent: 'center',
             height: 50,
             borderRadius: 4,
-            backgroundColor: 'rgba(255,255,255,0.15)',
+            backgroundColor: colors.fill40,
             marginTop: 16,
           }}>
           <Text

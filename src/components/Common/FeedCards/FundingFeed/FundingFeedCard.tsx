@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import {Poppins, Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import images from '@assets/images';
 import {formatNumber} from '@lib/factory';
 
@@ -37,7 +37,7 @@ const FundingFeedCard = (props: Props) => {
           left: 0,
           bottom: 0,
           right: 0,
-          backgroundColor: colors.BLACK100000,
+          backgroundColor: prevColors.BLACK100000,
           opacity: 0.4,
         }}
       />
@@ -47,7 +47,7 @@ const FundingFeedCard = (props: Props) => {
             Poppins.Bold,
             {
               fontSize: 14,
-              color: colors.MAIN,
+              color: prevColors.MAIN,
             },
           ]}>
           67% funded
@@ -64,7 +64,7 @@ const FundingFeedCard = (props: Props) => {
             style={{
               height: 4,
               width: '55%',
-              backgroundColor: colors.MAIN,
+              backgroundColor: prevColors.MAIN,
               borderRadius: 4,
             }}
           />
@@ -81,7 +81,7 @@ const FundingFeedCard = (props: Props) => {
               Poppins.Regular,
               {
                 fontSize: 12,
-                color: colors.GRAY100000,
+                color: prevColors.GRAY100000,
               },
             ]}>
             {formatNumber(1210)} essentor
@@ -99,7 +99,7 @@ const FundingFeedCard = (props: Props) => {
               Poppins.Regular,
               {
                 fontSize: 12,
-                color: colors.GRAY100000,
+                color: prevColors.GRAY100000,
               },
             ]}>
             12 days to go
@@ -172,7 +172,7 @@ const FundingFeedCard = (props: Props) => {
               {
                 fontSize: 12,
                 marginTop: 12,
-                color: colors.GRAY100000,
+                color: prevColors.GRAY100000,
               },
             ]}>
             2023.06.22

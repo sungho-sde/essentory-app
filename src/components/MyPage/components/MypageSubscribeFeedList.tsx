@@ -1,7 +1,7 @@
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Poppins, Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import TextFeedCardContainer from '@components/Common/FeedCards/TextFeed/containers/TextFeedCardContainer';
 import FundingFeedCardContainer from '@components/Common/FeedCards/FundingFeed/containers/FundingFeedCardContainer';
 import AudioFeedCardContainer from '@components/Common/FeedCards/AudioFeed/containers/AudioFeedCardContainer';

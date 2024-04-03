@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import {hasNotch} from 'react-native-device-info';
 import {Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 
 type Props = {
   isAlert: boolean;
@@ -71,9 +71,9 @@ const Setting = ({isAlert, onAlertSwitchPressed}: Props) => {
             알림 관리
           </Text>
           <Switch
-            // trackColor={{false: 'red', true: colors.MAIN}}
+            // trackColor={{false: 'red', true: prevColors.MAIN}}
             // thumbColor="white"
-            // ios_backgroundColor={colors.MAIN}
+            // ios_backgroundColor={prevColors.MAIN}
             onValueChange={onAlertSwitchPressed}
             value={isAlert}
           />

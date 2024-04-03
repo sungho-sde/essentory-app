@@ -11,7 +11,7 @@ import images from '@assets/images';
 
 import MainContainer from '@components/Main/containers/MainContainer';
 import AlertContainer from '@components/Alert/containers/AlertContainer';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import SettingContainer from '@components/Setting/containers/SettingContainer';
 import CreatorMainPageContainer from '@components/CreatorMainPage/containers/CreatorMainPageContainer';
 import ProfileModifyContainer from '@components/ProfileModify/containers/ProfileModifyContainer';
@@ -38,7 +38,7 @@ const CommonStackNavigation = (props: Props) => {
             backgroundColor: 'rgba(0,0,0,0)',
           },
           headerStyle: {
-            backgroundColor: colors.BLACK200000,
+            backgroundColor: prevColors.BLACK200000,
           },
           headerShadowVisible: false,
           headerTitleAlign: 'center',

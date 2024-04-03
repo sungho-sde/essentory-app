@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Pretendard} from '@assets/fonts';
+import {colors} from '@assets/colors';
 
 type Props = {
   email: string;
@@ -19,7 +20,7 @@ const CheckEmailVerification = ({email, onSubmitPressed}: Props) => {
           Pretendard.SemiBold,
           {
             fontSize: 24,
-            color: 'rgba(255,255,255,0.85)',
+            color: colors.fill10,
           },
         ]}>
         이메일을 확인해주세요
@@ -29,7 +30,7 @@ const CheckEmailVerification = ({email, onSubmitPressed}: Props) => {
           Pretendard.Regular,
           {
             fontSize: 15,
-            color: 'rgba(255,255,255,0.85)',
+            color: colors.fill10,
             marginTop: 8,
             lineHeight: 15 * 1.5,
           },
@@ -52,7 +53,7 @@ const CheckEmailVerification = ({email, onSubmitPressed}: Props) => {
             Pretendard.SemiBold,
             {
               fontSize: 17,
-              color: 'rgba(255,255,255,0.85)',
+              color: colors.fill10,
             },
           ]}>
           이메일 확인하기

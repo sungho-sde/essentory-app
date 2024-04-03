@@ -30,9 +30,11 @@ const images = {
   icons: {
     badge: {
       white: require('./images/icons/ic-creator-badge.png'),
+      white16: require('./images/icons/ic-white-verified-16.png'),
     },
     search: {
       gray: require('./images/icons/ic-gray-search.png'),
+      white: require('./images/icons/ic-white-search.png'),
     },
     check: {
       circle: {
@@ -72,7 +74,8 @@ const images = {
       },
     },
     more: {
-      white: require('./images/icons/ic-white-more.png'),
+      white16: require('./images/icons/ic-more-white-16.png'),
+      white: require('./images/icons/ic-more-white-24.png'),
     },
     chat: {
       white: require('./images/icons/ic-white-chat.png'),
@@ -126,6 +129,15 @@ const images = {
     },
     lock: {
       white: require('./images/icons/ic-white-lock.png'),
+    },
+    bookmark: {
+      white16: require('./images/icons/ic-white-bookmark-16.png'),
+    },
+    comment: {
+      white16: require('./images/icons/ic-white-comment-16.png'),
+    },
+    heart: {
+      white16: require('./images/icons/ic-white-heart-16.png'),
     },
   },
 };

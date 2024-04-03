@@ -9,7 +9,7 @@ import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {hasNotch} from 'react-native-device-info';
 import FastImage from 'react-native-fast-image';
 
@@ -116,7 +116,7 @@ const CustomTabBar = ({state, descriptors, navigation}: BottomTabBarProps) => {
                   Pretendard.Bold,
                   {
                     fontSize: 10,
-                    color: isFocused ? 'white' : colors.GRAY200000,
+                    color: isFocused ? 'white' : prevColors.GRAY200000,
                     marginTop: 6,
                     textAlign: 'center',
                   },

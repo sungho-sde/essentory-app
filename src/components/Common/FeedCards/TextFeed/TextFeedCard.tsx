@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import {Poppins, Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import images from '@assets/images';
 import Modal from 'react-native-modal';
 import {hasNotch} from 'react-native-device-info';
@@ -40,7 +40,7 @@ const TextFeedCard = ({onSharePressed}: Props) => {
             left: 0,
             bottom: 0,
             right: 0,
-            backgroundColor: colors.BLACK100000,
+            backgroundColor: prevColors.BLACK100000,
             opacity: 0.4,
           }}
         />
@@ -113,7 +113,7 @@ const TextFeedCard = ({onSharePressed}: Props) => {
                 {
                   fontSize: 12,
                   marginTop: 12,
-                  color: colors.GRAY100000,
+                  color: prevColors.GRAY100000,
                 },
               ]}>
               2023.06.22
@@ -194,7 +194,7 @@ const TextFeedCard = ({onSharePressed}: Props) => {
           style={{
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,
-            backgroundColor: colors.BLACK300,
+            backgroundColor: prevColors.BLACK300,
             paddingTop: 8,
             paddingHorizontal: 20,
             paddingBottom: hasNotch() ? 90 : 76,
@@ -249,7 +249,7 @@ const TextFeedCard = ({onSharePressed}: Props) => {
                   Pretendard.Regular,
                   {
                     fontSize: 12,
-                    color: colors.GRAY300000,
+                    color: prevColors.GRAY300000,
                     textAlign: 'center',
                     marginTop: 8,
                   },
@@ -273,7 +273,7 @@ const TextFeedCard = ({onSharePressed}: Props) => {
                   Pretendard.Regular,
                   {
                     fontSize: 12,
-                    color: colors.GRAY300000,
+                    color: prevColors.GRAY300000,
                     textAlign: 'center',
                     marginTop: 8,
                   },

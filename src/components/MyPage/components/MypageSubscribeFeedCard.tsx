@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import {Poppins, Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 
 type Props = {
   onCreatorPressed: () => void;
@@ -51,7 +51,7 @@ const MypageSubscribeFeedCard = ({onCreatorPressed}: Props) => {
             Poppins.Regular,
             {
               fontSize: 14,
-              color: colors.GRAY300000,
+              color: prevColors.GRAY300000,
               marginTop: 8,
             },
           ]}
@@ -66,14 +66,14 @@ const MypageSubscribeFeedCard = ({onCreatorPressed}: Props) => {
           alignItems: 'center',
           justifyContent: 'center',
           borderRadius: 36,
-          backgroundColor: colors.MAIN,
+          backgroundColor: prevColors.MAIN,
         }}>
         <Text
           style={[
             Pretendard.Bold,
             {
               fontSize: 14,
-              color: colors.BLACK200000,
+              color: prevColors.BLACK200000,
             },
           ]}>
           후원하기

@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import {Poppins, Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import images from '@assets/images';
 import * as Animated from 'react-native-animatable';
 
@@ -37,7 +37,7 @@ const AudioFeedCard = (props: Props) => {
           left: 0,
           bottom: 0,
           right: 0,
-          backgroundColor: colors.BLACK100000,
+          backgroundColor: prevColors.BLACK100000,
           opacity: 0.4,
         }}
       />
@@ -141,7 +141,7 @@ const AudioFeedCard = (props: Props) => {
               {
                 fontSize: 12,
                 marginTop: 12,
-                color: colors.GRAY100000,
+                color: prevColors.GRAY100000,
               },
             ]}>
             2023.06.22

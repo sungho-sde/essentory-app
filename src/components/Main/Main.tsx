@@ -5,7 +5,7 @@ import {BottomTabParamsListTypes} from '@typedef/routes/main.tab.types';
 import HomeContainer from '@components/Home/containers/HomeContainer';
 
 import CustomTabBar from './components/CustomTabBar';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import ExploreContainer from '@components/Explore/containers/ExploreContainer';
 import MyPageContainer from '@components/MyPage/containers/MyPageContainer';
 import FeedContainer from '@components/Feed/containers/FeedContainer';
@@ -27,10 +27,10 @@ const Main = (props: Props) => {
         screenOptions={{
           headerShown: false,
           headerStyle: {
-            backgroundColor: colors.BLACK001000,
+            backgroundColor: prevColors.BLACK001000,
           },
           headerTitleStyle: {
-            color: colors.BLACK001000,
+            color: prevColors.BLACK001000,
           },
           headerShadowVisible: false,
         }}>

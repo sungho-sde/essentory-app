@@ -2,9 +2,10 @@ import {View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import React from 'react';
 import images from '@assets/images';
 import {Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {colors} from '@assets/colors';
 import {KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
+colors;
 
 type Props = {
   isReadyForSendEmail: boolean;
@@ -40,7 +41,7 @@ const ForgotPassword = ({
                   Pretendard.SemiBold,
                   {
                     fontSize: 24,
-                    color: 'rgba(255,255,255,0.85)',
+                    color: colors.fill10,
                   },
                 ]}>
                 비밀번호 재설정하기
@@ -89,7 +90,7 @@ const ForgotPassword = ({
                     paddingHorizontal: 12,
                     alignItems: 'center',
                     justifyContent: 'center',
-                    backgroundColor: 'rgba(255,255,255,0.15)',
+                    backgroundColor: colors.fill40,
                     borderRadius: 4,
                     marginTop: 8,
                     marginRight: 'auto',
@@ -100,7 +101,7 @@ const ForgotPassword = ({
                       {
                         fontSize: 15,
                         color: !isReadyForSendEmail
-                          ? 'rgba(255,255,255,0.15)'
+                          ? colors.fill40
                           : 'rgba(255,255,255,0.95)',
                       },
                     ]}>

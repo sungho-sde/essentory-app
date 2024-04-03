@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import React from 'react';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {Pretendard} from '@assets/fonts';
 import TextFeedCardContainer from '@components/Common/FeedCards/TextFeed/containers/TextFeedCardContainer';
 import FundingFeedCardContainer from '@components/Common/FeedCards/FundingFeed/containers/FundingFeedCardContainer';
@@ -50,9 +50,9 @@ const MypageContentSaveBoxList = (props: Props) => {
                       style={{
                         paddingHorizontal: 14,
                         paddingVertical: 8,
-                        backgroundColor: colors.MAIN,
+                        backgroundColor: prevColors.MAIN,
                         borderWidth: 1,
-                        borderColor: colors.MAIN,
+                        borderColor: prevColors.MAIN,
                         borderRadius: 44,
                       }}>
                       <Text
@@ -60,7 +60,7 @@ const MypageContentSaveBoxList = (props: Props) => {
                           Pretendard.Bold,
                           {
                             fontSize: 14,
-                            color: colors.BLACK200000,
+                            color: prevColors.BLACK200000,
                           },
                         ]}>
                         {item}

@@ -3,6 +3,7 @@ import React from 'react';
 import {KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
 import {Pretendard} from '@assets/fonts';
 import TextInputComponentContainer from '@components/Common/Input/TextInputComponent/containers/TextInputComponentContainer';
+import {colors} from '@assets/colors';
 
 type Props = {
   isReadyForSubmit: boolean;
@@ -39,7 +40,7 @@ const JoinEmailWrite = ({
                     Pretendard.SemiBold,
                     {
                       fontSize: 24,
-                      color: 'rgba(255,255,255,0.85)',
+                      color: colors.fill10,
                     },
                   ]}>
                   이메일을 입력해주세요
@@ -86,9 +87,7 @@ const JoinEmailWrite = ({
                     Pretendard.SemiBold,
                     {
                       fontSize: 17,
-                      color: true
-                        ? 'rgba(255,255,255,0.85)'
-                        : 'rgba(255,255,255,0.15)',
+                      color: true ? colors.fill10 : colors.fill40,
                     },
                   ]}>
                   다음

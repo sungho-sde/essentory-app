@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import {Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 
 type Props = {};
 
@@ -43,7 +43,7 @@ const ProfileModify = (props: Props) => {
               Pretendard.Regular,
               {
                 fontSize: 14,
-                color: colors.MAIN,
+                color: prevColors.MAIN,
               },
             ]}>
             프로필 사진 변경
@@ -79,7 +79,7 @@ const ProfileModify = (props: Props) => {
             }}>
             <TextInput
               value="Day 14"
-              placeholderTextColor={colors.GRAY400000}
+              placeholderTextColor={prevColors.GRAY400000}
               style={[
                 Pretendard.Regular,
                 {

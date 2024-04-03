@@ -5,7 +5,7 @@ import {RootRouterTypes} from '@typedef/store/routes.types';
 import SplashContainer from '@components/Splash/containers/SplashContainer';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginStackNavigationContainer from '@routes/LoginStackNavigation/containers/LoginStackNavigationContainer';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import LoadingContainer from '@components/Common/Loading/containers/LoadingContainer';
 
 type Props = {
@@ -17,7 +17,7 @@ const RootNavigation = ({rootRouter}: Props) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: colors.BLACK300,
+        backgroundColor: prevColors.BLACK300,
       }}>
       <NavigationContainer
       // ref={rootNavigationRef}

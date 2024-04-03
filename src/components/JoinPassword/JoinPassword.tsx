@@ -3,6 +3,7 @@ import React from 'react';
 import {KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
 import {Pretendard} from '@assets/fonts';
 import PasswordInputComponentContainer from '@components/Common/Input/PasswordInputComponent/containers/PasswordInputComponentContainer';
+import {colors} from '@assets/colors';
 
 type Props = {
   isShowPassword: boolean;
@@ -53,7 +54,7 @@ const JoinPassword = ({
                   Pretendard.SemiBold,
                   {
                     fontSize: 24,
-                    color: 'rgba(255,255,255,0.85)',
+                    color: colors.fill10,
                   },
                 ]}>
                 비밀번호 설정하기
@@ -63,7 +64,7 @@ const JoinPassword = ({
                   Pretendard.Regular,
                   {
                     fontSize: 15,
-                    color: 'rgba(255,255,255,0.85)',
+                    color: colors.fill10,
                     marginTop: 8,
                     lineHeight: 22.5,
                   },
@@ -161,9 +162,7 @@ const JoinPassword = ({
                       Pretendard.SemiBold,
                       {
                         fontSize: 17,
-                        color: isReadyForSubmit
-                          ? 'rgba(255,255,255,0.85)'
-                          : 'rgba(255,255,255,0.15)',
+                        color: isReadyForSubmit ? colors.fill10 : colors.fill40,
                       },
                     ]}>
                     비밀번호 설정하기

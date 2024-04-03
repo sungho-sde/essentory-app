@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import React, {useCallback} from 'react';
 import {Pretendard} from '@assets/fonts';
-import colors from '@assets/colors';
+import {prevColors} from '@assets/colors';
 import {useNavigation} from '@react-navigation/native';
 import {TestStackNavigationTypes} from '@typedef/routes/test.stack.types';
 
@@ -37,7 +37,7 @@ const Test = (props: Props) => {
             alignItems: 'center',
             justifyContent: 'center',
             height: 52,
-            backgroundColor: colors.MAIN,
+            backgroundColor: prevColors.MAIN,
             borderRadius: 8,
           }}>
           <Text
@@ -45,7 +45,7 @@ const Test = (props: Props) => {
               Pretendard.Bold,
               {
                 fontSize: 16,
-                color: colors.BLACK200000,
+                color: prevColors.BLACK200000,
               },
             ]}>
             공유 버튼 테스트
@@ -57,7 +57,7 @@ const Test = (props: Props) => {
             alignItems: 'center',
             justifyContent: 'center',
             height: 52,
-            backgroundColor: colors.MAIN,
+            backgroundColor: prevColors.MAIN,
             borderRadius: 8,
             marginTop: 20,
           }}>
@@ -66,7 +66,7 @@ const Test = (props: Props) => {
               Pretendard.Bold,
               {
                 fontSize: 16,
-                color: colors.BLACK200000,
+                color: prevColors.BLACK200000,
               },
             ]}>
             컴포넌트 테스트
