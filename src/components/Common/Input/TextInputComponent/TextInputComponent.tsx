@@ -39,7 +39,7 @@ const TextInputComponent = ({
         {
           flexDirection: 'row',
           alignItems: 'center',
-          backgroundColor: 'rgba(0,0,0,0.2)',
+          backgroundColor: colors.frostedFillBlack20,
           borderRadius: 8,
           minWidth: 300,
           paddingHorizontal: 16,
