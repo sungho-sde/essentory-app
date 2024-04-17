@@ -1,0 +1,1 @@
+const BACKEND_URL = "https://essentory-api-test.up.railway.app"

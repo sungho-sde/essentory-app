@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import FeedNoSubscribeContainer from './containers/FeedNoSubscribeContainer';
 import FeedExistSubscribeContainer from './containers/FeedExistSubscribeContainer';
@@ -6,15 +6,21 @@ import FeedExistSubscribeContainer from './containers/FeedExistSubscribeContaine
 type Props = {};
 
 const Feed = (props: Props) => {
+  /**
+   * To Do: Check if the user has subscribers or not
+   */
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#191919',
-      }}>
+    <View style={styles.container}>
       {false ? <FeedNoSubscribeContainer /> : <FeedExistSubscribeContainer />}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#191919'
+  }
+})
 
 export default Feed;
