@@ -10,6 +10,8 @@ import ExploreContainer from '@components/Explore/containers/ExploreContainer';
 import MyPageContainer from '@components/MyPage/containers/MyPageContainer';
 import FeedContainer from '@components/Feed/containers/FeedContainer';
 import AlertContainer from '@components/Alert/containers/AlertContainer';
+import CreatorMainPageContainer from '@components/CreatorMainPage/containers/CreatorMainPageContainer';
+import MypageSubscribeFeedCardContainer from '@components/MyPage/containers/MypageSubscribeFeedCardContainer';
 
 type Props = {};
 
@@ -43,7 +45,7 @@ const Main = (props: Props) => {
         />
         <Tab.Screen
           name="contents"
-          component={HomeContainer}
+          component={MypageSubscribeFeedCardContainer}
           options={{
             title: '콘텐츠',
           }}

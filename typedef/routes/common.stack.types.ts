@@ -14,6 +14,8 @@ export type CommonStackParamsListTypes = {
   //creator stack
   creatorMainPage: undefined;
 
+  feedPostDetailView: undefined;
+
   //mypage stack
   modifyProfile: undefined;
 } & TestStackParamsListTypes;

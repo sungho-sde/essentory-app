@@ -18,6 +18,7 @@ import ProfileModifyContainer from '@components/ProfileModify/containers/Profile
 import Test from '@components/Test/Test';
 import TestShareButtonContainer from '@components/Test/containers/TestShareButtonContainer';
 import TestComponent from '@components/Test/components/TestComponent';
+import FeedPostDetailView from '@components/Feed/containers/FeedPostDetailView';
 
 type Props = {};
 
@@ -80,6 +81,17 @@ const CommonStackNavigation = (props: Props) => {
             title: '설정',
           }}
         />
+
+        { /* FEED SECTION */}
+        <Stack.Group>
+          <Stack.Screen
+            name="feedPostDetailView"
+            component={FeedPostDetailView}
+            options={{
+              title: '',
+            }}
+          />
+        </Stack.Group>
 
         {/* MYPAGE SECTION */}
 
