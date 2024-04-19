@@ -7,7 +7,7 @@ type CounterState = {
   root: RootRouterTypes;
 };
 const initialState: CounterState = {
-  root: 'splash',
+  root: 'main',
 };
 const routes = (
   state: CounterState = initialState,
